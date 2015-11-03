@@ -1,9 +1,11 @@
 package br.edu.ifsp.stmob;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,4 +36,31 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void chamaLoginActivity (View view){
+
+        Intent loginActivity = new Intent(this, LoginActivity.class);
+        startActivity(loginActivity);
+    }
+
+
+    public void chamaAlteraParticipanteActivity (View view){
+
+        Intent alteraParticipanteActivity = new Intent(this, AlteraParticipanteActivity.class);
+        startActivity(alteraParticipanteActivity);
+    }
+
+    public void chamaCadastraAvisoActivity (View view){
+
+        Intent cadastraAvisoActivity = new Intent(this, CadastraAvisoActivity.class);
+        startActivity(cadastraAvisoActivity);
+    }
+
+    public void chamaBuscaAvisoActivity (View view){
+
+        Intent buscaAvisoActivity = new Intent(this, BuscaAvisoExtraordinarioActivity.class);
+        startActivity(buscaAvisoActivity);
+    }
+
+
 }

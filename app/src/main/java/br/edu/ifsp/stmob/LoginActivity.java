@@ -3,6 +3,7 @@ package br.edu.ifsp.stmob;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -92,6 +93,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+    }
+
+    public void chamaRecuperaSenhaActivity (View view){
+
+        Intent recuperaSenhaActivity = new Intent(this, RecuperaSenhaActivity.class);
+        startActivity(recuperaSenhaActivity);
+    }
+
+    public void chamaCadastraParticipanteActivity (View view){
+
+        Intent cadastraParticipanteActivity = new Intent(this, CadastraParticipanteActivity.class);
+        startActivity(cadastraParticipanteActivity);
     }
 
     private void populateAutoComplete() {
