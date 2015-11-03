@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="br.edu.ifsp.stmob.CadastraAvisoExtraordinarioActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar Aviso Extraordinário"
+        android:id="@+id/txtDescricao"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Atividade"
+        android:id="@+id/txtAtividade"
+        android:layout_below="@+id/txtDescricao"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="39dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:id="@+id/atividade"
+        android:layout_below="@+id/txtAtividade"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Data e hora"
+        android:id="@+id/txtDataHora"
+        android:layout_below="@+id/atividade"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="27dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dataHora"
+        android:layout_below="@+id/txtDataHora"
+        android:layout_alignParentStart="true"
+        android:text="Data e hora" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Descrição"
+        android:id="@+id/txtDesc"
+        android:layout_below="@+id/dataHora"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="31dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/descricao"
+        android:layout_below="@+id/txtDesc"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/atividade"
+        android:text="Descrição" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar"
+        android:id="@+id/btnCadastrarAviso"
+        android:layout_marginTop="59dp"
+        android:layout_below="@+id/descricao"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
