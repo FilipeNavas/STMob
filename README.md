@@ -10,35 +10,44 @@ Estrutura do Projeto no Android Studio
     - java
         - br.edu.ifsp.stmob.model
           - Usuario
+          - AvisoExtraordinario
           - Atividade
-          - Evento
+          - Palestrante
+          - AreaConhecimento
+          - Feedback
+          - Inscricao
         - br.edu.ifsp.stmob.activity
           - MainActivity
           - UsuarioActivity
           - AtividadeActivity
-          - EventoActivity
+          - AvisoExtraordinarioActivity
+          - ... muitas outras
         - br.edu.ifsp.stmob.dao
           - UsuarioDao
+          - AvisoExtraordinarioDao
           - AtividadeDao
-          - EventoDao
+          - PalestranteDao
+          - AreaConhecimentoDao
+          - FeedbackDao
+          - InscricaoDao
         - br.edu.ifsp.stmob.dao.factory
           - ConnectionFactory
         - br.edu.ifsp.stmob.test
           - UsuarioTest
           - AtividadeTest
-          - EventoTest
+          - ... muitas outras
     - res
        - drawable
        - layout
          - activity_main.xml
          - activity_usuario.xml
          - activity_atividade.xml
-         - activity_evento.xml
+         - ... muitas outras
        - menu
          - menu_main.xml
          - menu_usuario.xml
          - menu_atividade.xml
-         - menu_evento.xml
+         - ... muitas outras
        - mipmap
          - ic_launcher.png
             - ic_launcher.png (hdpi) 
