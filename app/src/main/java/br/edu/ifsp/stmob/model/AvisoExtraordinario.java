@@ -16,9 +16,9 @@ public class AvisoExtraordinario {
 
     public void enviarAviso(AvisoExtraordinario avisoExtraordinario){}
 
-    public void cadastrarAviso(Atividade atividade, String aviTitulo, Date aviData, Time aviHorario, String aviDescricao){}
+    //public void cadastrarAviso(Atividade atividade, String aviTitulo, Date aviData, Time aviHorario, String aviDescricao){}
 
-    public void alterarAviso(Atividade atividade, String aviTitulo, Date aviData, Time aviHorario, String aviDescricao){}
+    //public void alterarAviso(Atividade atividade, String aviTitulo, Date aviData, Time aviHorario, String aviDescricao){}
 
     public void excluirAviso(int aviCod){}
 

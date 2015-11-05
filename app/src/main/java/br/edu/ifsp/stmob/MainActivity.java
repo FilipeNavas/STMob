@@ -62,5 +62,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(buscaAvisoActivity);
     }
 
+    //Atividades
+    public void chamaGradeAtividadesActivity (View view){
+
+        Intent buscaAvisoActivity = new Intent(this, BuscaAvisoExtraordinarioActivity.class);
+        startActivity(buscaAvisoActivity);
+    }
+
 
 }

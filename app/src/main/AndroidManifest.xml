@@ -31,6 +31,13 @@
         </activity>
         <activity android:name=".CadastraAvisoExtraordinarioActivity" >
         </activity>
+        <activity android:name=".AlteraParticipanteActivity" >
+        </activity>
+        <activity android:name=".CadastraAvisoActivity" >
+        </activity>
+        <activity android:name=".CadastraParticipanteActivity" >
+        </activity>
+
     </application>
 
 </manifest>

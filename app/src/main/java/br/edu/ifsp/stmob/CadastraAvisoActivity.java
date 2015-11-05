@@ -11,6 +11,6 @@ public class CadastraAvisoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastra_aviso);
+        setContentView(R.layout.activity_cadastra_aviso_extraordinario);
     }
 }

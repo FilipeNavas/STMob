@@ -40,6 +40,37 @@
         android:layout_alignStart="@+id/button4"
         android:layout_alignEnd="@+id/button4" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Altera Participante"
+        android:id="@+id/button8"
+        android:layout_below="@+id/button7"
+        android:layout_alignStart="@+id/button7"
+        android:layout_alignEnd="@+id/button7"
+        android:onClick="chamaAlteraParticipanteActivity" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cadastra Aviso Extraordinário"
+        android:id="@+id/button9"
+        android:layout_below="@+id/button8"
+        android:layout_alignStart="@+id/button8"
+        android:layout_alignEnd="@+id/button8"
+        android:onClick="chamaCadastraAvisoActivity" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Busca Aviso Extraordinário"
+        android:id="@+id/button10"
+        android:layout_below="@+id/button9"
+        android:layout_alignStart="@+id/button9"
+        android:layout_alignEnd="@+id/button9"
+        android:onClick="chamaBuscaAvisoActivity" />
+
+    <!--
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,5 +79,6 @@
         android:layout_below="@+id/button7"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="68dp" />
+     -->
 
 </RelativeLayout>
