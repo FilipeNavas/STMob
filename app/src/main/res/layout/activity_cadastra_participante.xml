@@ -1,11 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <TextView
+    <EditText
+        android:layout_width="387dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/cadastraNome"
+        android:layout_marginTop="54dp"
+        android:hint="Nome Completo" />
+
+    <android.support.design.widget.TextInputLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <AutoCompleteTextView android:id="@+id/cadastraEmail" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Email"
+            android:inputType="textEmailAddress" android:maxLines="1"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <AutoCompleteTextView android:id="@+id/cadastraSenha" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Escolha uma Senha"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:password="true"
+            android:inputType="textWebPassword" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <AutoCompleteTextView android:id="@+id/cadastraSenhaC" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Confirme a Senha"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:password="true"
+            android:inputType="textWebPassword" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/cadastraTelefone"
+        android:digits="11"
+        android:hint="Telefone" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cadastraTipo"
+        android:entries="@array/tipo_array"
+        android:prompt="@string/tipo_prompt" />
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Cadastra Participante"
-        android:id="@+id/textView5" />
+        android:text="Cadastrar"
+        android:id="@+id/btnCadastrar" />
+
+    <Button
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:text="Voltar"
+        android:id="@+id/btnVoltar" />
+
+
 </LinearLayout>

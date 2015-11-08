@@ -5,6 +5,9 @@ import java.util.Date;
 
 /**
  * Created by Filipe on 2015-10-27.
+ *
+ * Módulo Participantes
+ *
  */
 public class AvisoExtraordinario {
 

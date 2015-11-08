@@ -18,4 +18,32 @@
         completions."
     </string>
     <string name="title_activity_recupera_senha">RecuperaSenhaActivity</string>
+
+    <string name="tipo_prompt">Tipo</string>
+    <string-array name="tipo_array" >
+        <item>Estudante</item>
+        <item>Professor</item>
+    </string-array>
+
+    <string name="title_activity_buscar_atividades">buscarAtividades</string>
+    <string name="title_activity_busca_atividade_resultado">buscaAtividadeResultado</string>
+    <string name="title_activity_busca_atividadesnenhumretornto">BuscaAtividadesnenhumretornto
+    </string>
+
+    <string name="NomeParti">Nome Participante</string>
+    <string name="EmailParti">Email Participante</string>
+    <string name="btnBuscar">Buscar</string>
+    <string name="ListarParticipante">Listar participante</string>
+    <string name="cancelaInscr">Inscrição Cancelada com sucesso</string>
+    <string name="btnVoltar">Voltar</string>
+    <string name="atvPlaceholder">Nome Atividade</string>
+    <string name="atvPales">Palestrante:</string>
+    <string name="atvDescr">Descrição:</string>
+    <string name="atvLocal">Local:</string>
+    <string name="atvData">Data:</string>
+    <string name="btnInscrever">Inscrição</string>
+    <string name="btnCancelar">Cancelar <br></br> Inscrição</string>
+    <string name="btnShare">Compartilhar</string>
+    <string name="btnPresenca"> Presença</string>
+
 </resources>

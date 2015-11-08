@@ -2,6 +2,9 @@ package br.edu.ifsp.stmob.model;
 
 /**
  * Created by Filipe on 2015-10-26.
+ *
+ *   Módulo Participantes
+ *
  */
 public class Usuario {
 

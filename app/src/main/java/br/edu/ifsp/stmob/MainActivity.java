@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void chamaCadastraAvisoActivity (View view){
 
-        Intent cadastraAvisoActivity = new Intent(this, CadastraAvisoActivity.class);
+        Intent cadastraAvisoActivity = new Intent(this, CadastraAvisoExtraordinarioActivity.class);
         startActivity(cadastraAvisoActivity);
     }
 
@@ -62,12 +62,18 @@ public class MainActivity extends AppCompatActivity {
         startActivity(buscaAvisoActivity);
     }
 
-    //Atividades
-    public void chamaGradeAtividadesActivity (View view){
+    public void chamaBuscarAtividadesActivity (View view){
 
-        Intent buscaAvisoActivity = new Intent(this, BuscaAvisoExtraordinarioActivity.class);
-        startActivity(buscaAvisoActivity);
+        Intent buscarAtividadesActivity = new Intent(this, BuscarAtividades.class);
+        startActivity(buscarAtividadesActivity);
     }
+
+    public void chamaCadastrarParticipantesActivity (View view){
+
+        Intent cadastrarParticipantesActivity = new Intent(this, CadastraParticipanteActivity.class);
+        startActivity(cadastrarParticipantesActivity);
+    }
+
 
 
 }
