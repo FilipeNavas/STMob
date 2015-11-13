@@ -16,6 +16,7 @@ public class AvisoExtraordinario {
     Date aviData;
     Time aviHorario;
     String aviDescricao;
+    Atividade aviAtividade;
 
     public void enviarAviso(AvisoExtraordinario avisoExtraordinario){}
 
@@ -64,4 +65,8 @@ public class AvisoExtraordinario {
     public void setAviDescricao(String aviDescricao) {
         this.aviDescricao = aviDescricao;
     }
+
+    public Atividade getAviAtividade() { return aviAtividade; }
+
+    public void setAviAtividade(Atividade aviAtividade) { this.aviAtividade = aviAtividade; }
 }
