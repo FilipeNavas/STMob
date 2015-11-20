@@ -1,4 +1,4 @@
-package br.edu.ifsp.stmob.model;
+package br.edu.ifsp.stmob.modelo;
 
 /**
  * Created by Filipe on 2015-10-26.
@@ -8,12 +8,12 @@ package br.edu.ifsp.stmob.model;
  */
 public class Usuario {
 
-    int usuCod;
-    String usuNome;
-    String usuEmail;
-    String usuSenha;
-    String usuTipo;
-    String usuTelefone;
+    private int usuCod;
+    private String usuNome;
+    private String usuEmail;
+    private String usuSenha;
+    private String usuTipo;
+    private String usuTelefone;
 
     public void cadastrarUsuario(Usuario usuario){}
 

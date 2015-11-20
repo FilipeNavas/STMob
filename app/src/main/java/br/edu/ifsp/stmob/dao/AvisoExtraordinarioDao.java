@@ -10,19 +10,17 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ifsp.stmob.model.Atividade;
-import br.edu.ifsp.stmob.model.AvisoExtraordinario;
+import br.edu.ifsp.stmob.modelo.Atividade;
+import br.edu.ifsp.stmob.modelo.AvisoExtraordinario;
 
 /**
  * Created by Filipe on 2015-11-12.
  */
-public class AvisoExtraordinarioDao extends DAO<AvisoExtraordinario> {
+public class AvisoExtraordinarioDAO extends DAO<AvisoExtraordinario> {
 
     private SQLiteDatabase database;
 
-
-
-    public AvisoExtraordinarioDao(Context context) {
+    public AvisoExtraordinarioDAO(Context context) {
         super(context);
         campos = new String[]{"Cod_Aviso","Titulo","Data","Descricao","Horario","Atividade_Cod_Atividade"};
         tableName = "Aviso_Extraordinario";
@@ -70,6 +68,51 @@ public class AvisoExtraordinarioDao extends DAO<AvisoExtraordinario> {
     public List<AvisoExtraordinario> listAll() {
         List<AvisoExtraordinario> list = new ArrayList<AvisoExtraordinario>();
         Cursor cursor = executeSelect(null, null, "1");
+
+
+        if(cursor!=null && cursor.moveToFirst())
+        {
+            do{
+                list.add(serializeByCursor(cursor));
+            }while(cursor.moveToNext());
+
+
+        }
+
+        if(!cursor.isClosed())
+        {
+            cursor.close();
+        }
+
+        return list;
+
+
+    }
+
+    //Busca o Avisos por atividade, ou data ou horario
+    public List<AvisoExtraordinario> buscarAvisos(AvisoExtraordinario avisoExtraordinario) {
+
+        List<AvisoExtraordinario> list = new ArrayList<AvisoExtraordinario>();
+
+        //Cria o cursor
+        Cursor cursor = null;
+
+        //Se tiver a data e o horario, faz o select com eles
+        if( String.valueOf(avisoExtraordinario.getAviHorario()) != null && String.valueOf(avisoExtraordinario.getAviData()) != null) {
+            cursor =
+                    executeSelect("Atividade_Cod_Atividade = ? AND (Data = ? AND Horario)",
+                            new String[]{String.valueOf(avisoExtraordinario.getAviAtividade().getAtvCod()),
+                                    String.valueOf(avisoExtraordinario.getAviData()),
+                                    String.valueOf(avisoExtraordinario.getAviHorario())},
+                            null);
+
+        //Senão, faz somente com o cod da atividade
+        }else{
+            cursor =
+                    executeSelect("Atividade_Cod_Atividade = ?",
+                            new String[]{String.valueOf(avisoExtraordinario.getAviAtividade().getAtvCod())},
+                            null);
+        }
 
 
         if(cursor!=null && cursor.moveToFirst())

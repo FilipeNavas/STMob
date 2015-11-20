@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/atvNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="@string/atvPlaceholder"
+        android:textSize="30sp"
+        android:layout_gravity="center"
+        android:layout_weight="0.03" />
+
+    <TextView
+        android:id="@+id/txtDescr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="@string/atvDescr"
+        android:textSize="20sp"
+        android:layout_weight="0.00" />
+
+    <TextView
+        android:id="@+id/atvDescr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textSize="20sp"
+        android:layout_weight="0.20" />
+
+    <TextView
+        android:id="@+id/txtPalest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="@string/atvPales"
+        android:textSize="20sp"
+        android:layout_weight="0.00" />
+
+    <TextView
+        android:id="@+id/atvPales"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/txtLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="@string/atvLocal"
+        android:textSize="20sp"
+        android:layout_weight="0.00" />
+
+    <TextView
+        android:id="@+id/atvLocal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/txtData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="@string/atvData"
+        android:textSize="20sp"
+        android:layout_weight="0.00" />
+
+    <TextView
+        android:id="@+id/atvData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="83dp">
+
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnInscr"
+            android:text="@string/btnInscrever"
+            android:textSize="15sp"
+            android:layout_gravity="right"/>
+
+
+
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnPresenca"
+            android:textSize="15sp"
+            android:text="@string/btnPresenca"
+            android:layout_gravity="right"/>
+
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnShare"
+            android:textSize="14sp"
+            android:text="@string/btnShare"
+            android:layout_gravity="right"/>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
