@@ -49,14 +49,18 @@
 
     </android.support.design.widget.TextInputLayout>
 
-    <EditText
-        android:layout_width="match_parent"
+    <android.support.design.widget.TextInputLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="10"
-        android:id="@+id/cadastraTelefone"
-        android:digits="11"
-        android:hint="Telefone" />
+        android:orientation="vertical">
+
+        <AutoCompleteTextView android:id="@+id/cadastraTelefone" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Telefone"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:digits="11"
+            android:inputType="phone" />
+
+    </android.support.design.widget.TextInputLayout>
 
     <Spinner
         android:layout_width="match_parent"
@@ -69,6 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cadastrar"
+        android:onClick="salvar"
         android:id="@+id/btnCadastrar" />
 
     <Button
