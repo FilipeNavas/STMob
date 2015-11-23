@@ -6,8 +6,8 @@ android {
 
     defaultConfig {
         applicationId "br.edu.ifsp.stmob"
-        minSdkVersion 19
-        targetSdkVersion 23
+        minSdkVersion 17
+        targetSdkVersion 17
         versionCode 1
         versionName "1.0"
     }
@@ -17,10 +17,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
+
+repositories {
+    jcenter()
+}
+
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.android.support:design:23.1.0'
+    compile 'com.google.zxing:core:3.1.0'
+    compile 'com.google.zxing:android-integration:3.1.0'
 }

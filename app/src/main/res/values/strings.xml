@@ -42,8 +42,11 @@
     <string name="atvLocal">Local:</string>
     <string name="atvData">Data:</string>
     <string name="btnInscrever">Inscrição</string>
-    <string name="btnCancelar">Cancelar <br></br> Inscrição</string>
+    <string name="btnCancelar">Cancelar <br/> Inscrição</string>
     <string name="btnShare">Compartilhar</string>
     <string name="btnPresenca"> Presença</string>
+    <string name="result_succeeded">Retornado Com Sucesso!</string>
+    <string name="result_failed">Resultado Com Erro!</string>
+    <string name="result_failed_why">Por que algo aconteceu!</string>
 
 </resources>
