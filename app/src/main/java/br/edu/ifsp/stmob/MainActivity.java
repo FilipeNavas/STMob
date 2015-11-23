@@ -9,6 +9,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.List;
+
+import br.edu.ifsp.stmob.dao.FeedbackDAO;
+import br.edu.ifsp.stmob.dao.UsuarioDAO;
+import br.edu.ifsp.stmob.modelo.Feedback;
+import br.edu.ifsp.stmob.modelo.Usuario;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -56,7 +63,60 @@ public class MainActivity extends AppCompatActivity {
 
         Intent cadastraAvisoActivity = new Intent(this, CadastraAvisoExtraordinarioActivity.class);
         startActivity(cadastraAvisoActivity);
+
     }
+
+    public void chamaTestarBanco (View view){
+
+        UsuarioDAO usuarioDao = null;
+        FeedbackDAO feedbackDao = null;
+
+        try {
+            //Cria um usuario
+            Usuario usuario = new Usuario();
+            usuario.setUsuNome("Joao da Silva");
+            usuario.setUsuEmail("joaodasilva@hotmail.com");
+            usuario.setUsuCod(1);
+
+            //Salva no banco
+            usuarioDao = new UsuarioDAO(getApplicationContext());
+
+            usuarioDao.salvar(usuario);
+
+            //Recupera o usuario no banco
+            Usuario usuarioRecuperado = usuarioDao.getByEmail("joaodasilva@hotmail.com");
+
+            //Cria um feedback
+            Feedback feedback = new Feedback();
+            feedback.setFeeCod(1);
+            feedback.setFeeDescricao("Feedback - Evento muito bom");
+            feedback.setFeeUsuario(usuarioRecuperado);
+
+            //Salva
+            feedbackDao = new FeedbackDAO(getApplicationContext());
+            feedbackDao.salvar(feedback);
+
+            //Lista o usuario do banco
+            List<Usuario> list = usuarioDao.listAll();
+            for (Usuario objeto : list) {
+                System.out.println("RESULTADO USUARIO: " + objeto.getUsuNome());
+            }
+
+            //Lista o feedback do banco
+            List<Feedback> listFeedback = feedbackDao.listAll();
+            for (Feedback objeto : listFeedback) {
+                System.out.println("RESULTADO FEEDBACK: " + objeto.getFeeDescricao());
+                System.out.println("RESULTADO FEEDBACK COD USU: " + objeto.getFeeUsuario().getUsuCod());
+            }
+
+        }catch(Exception e){
+            System.out.println("ERROR: " + e.getStackTrace());
+        }finally{
+            usuarioDao.close();
+            feedbackDao.close();
+        }
+    }
+
 
     public void chamaBuscaAvisoActivity (View view){
 

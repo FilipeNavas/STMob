@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- AreaConhecimento -->
+    <string-array name="insertAreaConhecimentoBD">
+        <item>"INSERT INTO Area_Conhecimento (Descricao) VALUES ('Ciencias');"</item>
+        <item>"INSERT INTO Area_Conhecimento (Descricao) VALUES ('Tecnologia');"</item>
+        <item>"INSERT INTO Area_Conhecimento (Descricao) VALUES ('Liguistica');"</item>
+        <item>"INSERT INTO Area_Conhecimento (Descricao) VALUES ('Android');"</item>
+    </string-array>
+    <!-- Palestrantes-->
+    <string-array name="insertPalestrantesBD">
+        <item>"INSERT INTO Palestrante (Nome_Palestrante,Apresentacao,Lattes) VALUES ('Bavid Duzatto','Oi eu sou o Bavid','lattes.com.br/bavidbuzatto');"</item>
+        <item>"INSERT INTO Palestrante (Nome_Palestrante,Apresentacao,Lattes) VALUES ('Nicardo Reves','Oi eu sou o nicardo','lattes.com.br/nicardoreves');"</item>
+        <item>"INSERT INTO Palestrante (Nome_Palestrante,Apresentacao,Lattes) VALUES ('Austavo Garaujo','Oi eu sou o Austavo','lattes.com.br/austavogaraujo');"</item>
+    </string-array>
+
+
+
+</resources>

@@ -1,6 +1,7 @@
-package br.edu.ifsp.stmob.model;
+package br.edu.ifsp.stmob.modelo;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,10 +17,13 @@ public class Atividade {
     private int getAtvVagasOcupadas;
     private String atvTitulo;
     private String atvDescricao;
-    private Time Horario;
+    private Time avtHorario;
     private String atvLocal;
     private Date atvData;
-    private List<Atividade> atvList;
+
+    //Campos devidos aos relacionamentos entre as classes
+    private Palestrante avtPalestrante;
+    private AreaConhecimento avtAreaConhecimento;
 
 
     public int getAtvCod() {
@@ -57,13 +61,6 @@ public class Atividade {
         this.atvDescricao = atvDescricao;
     }
 
-    public Time getHorario() {
-        return Horario;
-    }
-    public void setHorario(Time horario) {
-        Horario = horario;
-    }
-
     public String getAtvLocal() {
         return atvLocal;
     }
@@ -78,8 +75,23 @@ public class Atividade {
         this.atvData = atvData;
     }
 
+    public Time getAvtHorario() { return avtHorario; }
+
+    public void setAvtHorario(Time avtHorario) { this.avtHorario = avtHorario; }
+
+    public Palestrante getAvtPalestrante() { return avtPalestrante; }
+
+    public void setAvtPalestrante(Palestrante avtPalestrante) { this.avtPalestrante = avtPalestrante; }
+
+    public AreaConhecimento getAvtAreaConhecimento() { return avtAreaConhecimento;}
+
+    public void setAvtAreaConhecimento(AreaConhecimento avtAreaConhecimento) {
+        this.avtAreaConhecimento = avtAreaConhecimento;
+    }
+
     public List<Atividade> buscarListaAtividade(String atvNome, String atvPales, int atvConhec){
-        return atvList;
+        List lista = new ArrayList();
+        return lista;
     }
 
     public Atividade buscarListaAtividadeEspecifica(int AtvCod){
