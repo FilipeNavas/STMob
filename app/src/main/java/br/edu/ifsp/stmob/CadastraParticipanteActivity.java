@@ -7,9 +7,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import br.edu.ifsp.stmob.dao.UsuarioDAO;
 import br.edu.ifsp.stmob.modelo.Usuario;
 
@@ -46,9 +43,9 @@ public class CadastraParticipanteActivity extends AppCompatActivity {
 
     public void salvar(View v)
     {
-        if (operacao.equalsIgnoreCase("Novo")) {
-            u = new Usuario();
-        }
+
+        //System.out.println("ENTROU SALVAR");
+        u = new Usuario();
 
         u.setUsuNome(cadastraNome.getText().toString());
         u.setUsuEmail(cadastraEmail.getText().toString());
@@ -57,10 +54,9 @@ public class CadastraParticipanteActivity extends AppCompatActivity {
         u.setUsuTipo(tipo[cadastraTipo.getSelectedItemPosition()]
                 .equalsIgnoreCase("Estudante") ? "Estudante" : "Professor");
 
-        if (operacao.equalsIgnoreCase("Novo")) {
-            dao.salvar(u);
-            exibirMensagem("Pessoa cadastrada com sucesso!");
-        }
+        //System.out.println("DADOS:" + u.getUsuNome() + " - " + u.getUsuEmail());
+        dao.salvar(u);
+        exibirMensagem("Pessoa cadastrada com sucesso!");
 
         limparDados();
     }

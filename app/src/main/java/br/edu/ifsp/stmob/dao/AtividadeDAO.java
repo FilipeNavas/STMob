@@ -73,7 +73,20 @@ public class AtividadeDAO extends DAO<Atividade> {
     }
 
     public boolean salvar(Atividade atividade) {
-        ContentValues values = serializeContentValues(atividade);
+        //ContentValues values = serializeContentValues(atividade);
+
+        //Serializa para ContentValues - nao pega o codigo
+        ContentValues values = new ContentValues();
+
+        values.put("Vagas_Limite", atividade.getAtvVagasLimite());
+        values.put("Vagas_Ocupadas", atividade.getGetAtvVagasOcupadas());
+        values.put("Descricao", atividade.getAtvDescricao());
+        values.put("Horario", String.valueOf(atividade.getAvtHorario()));
+        values.put("Local", atividade.getAtvLocal());
+        values.put("Data", String.valueOf(atividade.getAvtHorario()));
+        values.put("Area_Conhecimento_Cod_Area_Conhecimento", atividade.getAvtAreaConhecimento().getArcCod()); //Chave Estrangeira
+        values.put("Palestrante_Cod_Palestrante", atividade.getAvtPalestrante().getPltCod()); //Chave Estrangeira
+
         if(database.insert(tableName, null, values)>0)
             return true;
         else

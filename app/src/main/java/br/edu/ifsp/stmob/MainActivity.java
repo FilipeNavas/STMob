@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             Usuario usuario = new Usuario();
             usuario.setUsuNome("Joao da Silva");
             usuario.setUsuEmail("joaodasilva@hotmail.com");
-            usuario.setUsuCod(1);
+            //usuario.setUsuCod(0);
 
             //Salva no banco
             usuarioDao = new UsuarioDAO(getApplicationContext());
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
             //Cria um feedback
             Feedback feedback = new Feedback();
-            feedback.setFeeCod(1);
+            //feedback.setFeeCod(0);
             feedback.setFeeDescricao("Feedback - Evento muito bom");
             feedback.setFeeUsuario(usuarioRecuperado);
 

@@ -70,7 +70,14 @@ public class FeedbackDAO extends DAO<Feedback> {
     }
 
     public boolean salvar(Feedback feedback) {
-        ContentValues values = serializeContentValues(feedback);
+        //ContentValues values = serializeContentValues(feedback);
+
+        //Serializa para ContentValues - nao pega o codigo
+        ContentValues values = new ContentValues();
+
+        values.put("Descricao", feedback.getFeeDescricao());
+        values.put("Usuario_Cod_Usuario", feedback.getFeeUsuario().getUsuCod()); //Chave Estrangeira
+
         if(database.insert(tableName, null, values)>0)
             return true;
         else
