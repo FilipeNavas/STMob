@@ -88,8 +88,18 @@ public class UsuarioDAO extends DAO<Usuario> {
 
         }
 
-        public boolean salvar(Usuario pessoa) {
-            ContentValues values = serializeContentValues(pessoa);
+        public boolean salvar(Usuario usuario) {
+            //ContentValues values = serializeContentValues(pessoa);
+
+            //Serializa para ContentValues - nao pega o codigo
+            ContentValues values = new ContentValues();
+
+            values.put("Nome", usuario.getUsuNome());
+            values.put("Email", usuario.getUsuEmail());
+            values.put("Senha", usuario.getUsuEmail());
+            values.put("Tipo", usuario.getUsuTipo());
+            values.put("Telefone", usuario.getUsuTelefone());
+
             if(database.insert(tableName, null, values)>0)
                 return true;
             else

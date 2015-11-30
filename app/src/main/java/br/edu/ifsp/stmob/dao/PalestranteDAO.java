@@ -37,6 +37,21 @@ public class PalestranteDAO extends DAO<Palestrante> {
         }
         return palestrante;
     }
+    public Palestrante getByNome(String nome) {
+        Palestrante palestrante = null;
+
+        Cursor cursor = executeSelect("Nome_Palestrante = ? ", new String[]{nome}, null);
+
+        if(cursor!=null && cursor.moveToFirst())
+        {
+            palestrante = serializeByCursor(cursor);
+        }
+        if(!cursor.isClosed())
+        {
+            cursor.close();
+        }
+        return palestrante;
+    }
 
     public List<Palestrante> listAll() {
         List<Palestrante> list = new ArrayList<Palestrante>();
@@ -74,6 +89,7 @@ public class PalestranteDAO extends DAO<Palestrante> {
     {
 
         return database.query(tableName,campos, selection, selectionArgs, null, null, orderBy);
+
 
     }
 }

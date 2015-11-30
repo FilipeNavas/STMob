@@ -12,10 +12,6 @@ import java.util.List;
 import br.edu.ifsp.stmob.dao.AreaConhecimentoDAO;
 import br.edu.ifsp.stmob.modelo.AreaConhecimento;
 
-/*
-* Módulo Inscrições
-*/
-
 public class ListaParticipanteFiltroActivity extends AppCompatActivity {
 
     private AreaConhecimentoDAO dao;

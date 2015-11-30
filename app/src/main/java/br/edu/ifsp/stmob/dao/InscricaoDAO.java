@@ -67,7 +67,15 @@ public class InscricaoDAO extends DAO<Inscricao> {
     }
 
     public boolean salvar(Inscricao inscricao) {
-        ContentValues values = serializeContentValues(inscricao);
+        //ContentValues values = serializeContentValues(inscricao);
+
+        //Serializa para ContentValues - nao pega o codigo
+        ContentValues values = new ContentValues();
+
+        values.put("Descricao", inscricao.isInsStatusPresenca());
+        values.put("Atividade_Cod_Atividade", inscricao.getInsAtividade().getAtvCod()); //Chave Estrangeira
+        values.put("Usuario_Cod_Usuario", inscricao.getInsUsuario().getUsuCod()); //Chave Estrangeira
+
         if (database.insert(tableName, null, values) > 0)
             return true;
         else

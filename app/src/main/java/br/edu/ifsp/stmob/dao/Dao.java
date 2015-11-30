@@ -12,7 +12,7 @@ import br.edu.ifsp.stmob.R;
 public class DAO<T extends Object> extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "stmob_db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 5;
 
     public static final String TABLE_AVISO_EXTRAORDINARIO = "Aviso_Extraordinario";
     public static final String TABLE_ATIVIDADE = "Atividade";
@@ -27,7 +27,7 @@ public class DAO<T extends Object> extends SQLiteOpenHelper {
     protected String tableName;
 
     private static final String CREATE_TABLE_USUARIO = "CREATE TABLE Usuario ( "
-            + " Cod_Usuario INTEGER primary key autoincrement NOT NULL,"
+            + " Cod_Usuario INTEGER PRIMARY KEY,"
             + " Nome VARCHAR(200),"
             + " Email VARCHAR(200),"
             + " Senha VARCHAR(45),"
@@ -36,24 +36,24 @@ public class DAO<T extends Object> extends SQLiteOpenHelper {
             + ");";
 
     private static final String CREATE_TABLE_FEEDBACK = "CREATE TABLE Feedback ( "
-            + " Cod_Feedback integer primary key autoincrement NOT NULL,"
+            + " Cod_Feedback INTEGER PRIMARY KEY,"
             + " Descricao varchar(1200),"
             + " Usuario_Cod_Usuario INTEGER,"
             + " FOREIGN KEY(Usuario_Cod_Usuario) REFERENCES Usuario(Cod_Usuario)"
             + ");";
 
     private static final String CREATE_TABLE_PALESTRANTE = "CREATE TABLE Palestrante ( "
-            + " Cod_Palestrante integer primary key autoincrement NOT NULL,"
+            + " Cod_Palestrante INTEGER PRIMARY KEY NOT NULL,"
             + " Nome_Palestrante varchar(200),"
             + " Apresentacao varchar(200),"
             + " Lattes varchar(200))";
 
     private static final String CREATE_TABLE_AREA_CONHECIMENTO = "CREATE TABLE Area_Conhecimento ( "
-            + " Cod_Area_Conhecimento integer primary key autoincrement NOT NULL,"
+            + " Cod_Area_Conhecimento INTEGER PRIMARY KEY NOT NULL,"
             + " Descricao varchar(200))";
 
     private static final String CREATE_TABLE_ATIVIDADE = "CREATE TABLE Atividade ( "
-            + " Cod_Atividade INTEGER primary key autoincrement NOT NULL,"
+            + " Cod_Atividade INTEGER PRIMARY KEY NOT NULL,"
             + " Vagas_Limite INTEGER,"
             + " Vagas_Ocupadas INTEGER,"
             + " Titulo VARCHAR(200),"
@@ -68,7 +68,7 @@ public class DAO<T extends Object> extends SQLiteOpenHelper {
             + ");";
 
     private static final String CREATE_TABLE_AVISO_EXTRAORDINARIO = "CREATE TABLE Aviso_Extraordinario ( "
-            + " Cod_Aviso INTEGER primary key autoincrement NOT NULL,"
+            + " Cod_Aviso INTEGER PRIMARY KEY NOT NULL,"
             + " Titulo VARCHAR(200),"
             + " Data DATE,"
             + " Descricao VARCHAR(600),"
@@ -78,7 +78,7 @@ public class DAO<T extends Object> extends SQLiteOpenHelper {
             + ");";
 
     private static final String CREATE_TABLE_INSCRICAO = "CREATE TABLE Inscricao ( "
-            + " Cod_Inscricao integer primary key autoincrement NOT NULL,"
+            + " Cod_Inscricao INTEGER PRIMARY KEY NOT NULL,"
             + " Status_Presenca BOOLEAN,"
             + " Atividade_Cod_Atividade INTEGER,"
             + " Usuario_Cod_Usuario INTEGER,"
@@ -120,6 +120,14 @@ public class DAO<T extends Object> extends SQLiteOpenHelper {
         for(String pl:palestrantes)
         {
             database.execSQL(pl);
+        }
+
+        String[] atividades;
+        atividades = context.getResources().getStringArray(R.array.insertAtividadesBD
+        );
+        for(String at:atividades)
+        {
+            database.execSQL(at);
         }
     }
 

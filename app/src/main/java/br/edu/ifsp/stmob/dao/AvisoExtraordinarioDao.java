@@ -135,7 +135,17 @@ public class AvisoExtraordinarioDAO extends DAO<AvisoExtraordinario> {
     }
 
     public boolean salvar(AvisoExtraordinario avisoExtraordinario) {
-        ContentValues values = serializeContentValues(avisoExtraordinario);
+        //ContentValues values = serializeContentValues(avisoExtraordinario);
+
+        //Serializa para ContentValues - nao pega o codigo
+        ContentValues values = new ContentValues();
+
+        values.put("Titulo", avisoExtraordinario.getAviTitulo());
+        values.put("Data", String.valueOf(avisoExtraordinario.getAviData()));
+        values.put("Descricao", avisoExtraordinario.getAviDescricao());
+        values.put("Horario", String.valueOf(avisoExtraordinario.getAviHorario()));
+        values.put("Atividade_Cod_Atividade", avisoExtraordinario.getAviAtividade().getAtvCod()); //Chave Estrangeira
+
         if(database.insert(tableName, null, values)>0)
             return true;
         else

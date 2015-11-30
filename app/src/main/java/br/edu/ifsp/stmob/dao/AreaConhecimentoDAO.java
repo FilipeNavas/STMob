@@ -39,6 +39,21 @@ public class AreaConhecimentoDAO extends DAO<AreaConhecimento> {
         return areaConhecimento;
     }
 
+    public AreaConhecimento getByDescricao(String descricao) {
+        AreaConhecimento areaConhecimento = null;
+
+        Cursor cursor = executeSelect("Descricao = ?", new String[]{String.valueOf(descricao)}, null);
+
+        if(cursor!=null && cursor.moveToFirst())
+        {
+            areaConhecimento = serializeByCursor(cursor);
+        }
+        if(!cursor.isClosed())
+        {
+            cursor.close();
+        }
+        return areaConhecimento;
+    }
     public List<AreaConhecimento> listAll() {
         List<AreaConhecimento> list = new ArrayList<AreaConhecimento>();
         Cursor cursor = executeSelect(null, null, "1");
