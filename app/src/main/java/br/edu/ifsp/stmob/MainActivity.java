@@ -136,11 +136,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(cadastrarParticipantesActivity);
     }
 
-    public void chamaMostraAtividadeActivity (View view){
-
-        Intent mostraAtividadeActivity = new Intent(this, MostraAtividadeActivity.class);
-        startActivity(mostraAtividadeActivity);
-    }
+//    public void chamaMostraAtividadeActivity (View view){
+//
+//        Intent mostraAtividadeActivity = new Intent(this, MostraAtividadeActivity.class);
+//        startActivity(mostraAtividadeActivity);
+//    }
 
 
 
