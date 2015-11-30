@@ -8,6 +8,15 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
+        android:id="@+id/cadastraCod"
+        android:layout_marginTop="54dp"
+        android:hint="Nome Completo" />
+
+    <EditText
+        android:layout_width="387dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
         android:id="@+id/cadastraNome"
         android:layout_marginTop="54dp"
         android:hint="Nome Completo" />

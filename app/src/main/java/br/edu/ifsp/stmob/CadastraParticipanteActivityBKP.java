@@ -13,7 +13,7 @@ import br.edu.ifsp.stmob.modelo.Usuario;
 /**
  * Created by Fernando on 03/11/2015.
  */
-public class AlteraParticipanteActivity extends AppCompatActivity {
+public class CadastraParticipanteActivityBKP extends AppCompatActivity {
 
     private Usuario u;
     private UsuarioDAO dao;
@@ -22,13 +22,14 @@ public class AlteraParticipanteActivity extends AppCompatActivity {
     private EditText cadastraSenha;
     private EditText cadastraTelefone;
     private Spinner cadastraTipo;
+    private String operacao;
     private String[] tipo = { "Estudante", "Professor" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_altera_participante);
+        setContentView(R.layout.activity_cadastra_participante);
 
         cadastraNome = (EditText) findViewById(R.id.cadastraNome);
         cadastraEmail = (EditText) findViewById(R.id.cadastraEmail);
@@ -36,11 +37,16 @@ public class AlteraParticipanteActivity extends AppCompatActivity {
         cadastraTelefone = (EditText) findViewById(R.id.cadastraTelefone);
         cadastraTipo = (Spinner) findViewById(R.id.cadastraTipo);
 
-       dao = new UsuarioDAO(getApplicationContext());
+        operacao = new String("Novo");
+        dao = new UsuarioDAO(getApplicationContext());
     }
 
     public void salvar(View v)
     {
+        if (operacao.equalsIgnoreCase("Novo")) {
+            u = new Usuario();
+        }
+
         u.setUsuNome(cadastraNome.getText().toString());
         u.setUsuEmail(cadastraEmail.getText().toString());
         u.setUsuSenha(cadastraSenha.getText().toString());
@@ -48,9 +54,17 @@ public class AlteraParticipanteActivity extends AppCompatActivity {
         u.setUsuTipo(tipo[cadastraTipo.getSelectedItemPosition()]
                 .equalsIgnoreCase("Estudante") ? "Estudante" : "Professor");
 
-        dao.atualizar(u);
-        exibirMensagem("Usuário atualizado com sucesso!");
+        if (operacao.equalsIgnoreCase("Novo")) {
+            dao.salvar(u);
+            exibirMensagem("Pessoa cadastrada com sucesso!");
+        }
 
+        limparDados();
+    }
+
+    public void novo(View v)
+    {
+        operacao=new String("Novo");
         limparDados();
     }
 
@@ -68,14 +82,4 @@ public class AlteraParticipanteActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
     }
 
-
-    /*
-    * Método que preenche dados do usuário no formulário de alteração
-    */
-    private void preecherDados(Usuario u) {
-        cadastraNome.setText(u.getUsuNome());
-        cadastraEmail.setText(u.getUsuEmail());
-        cadastraTelefone.setText(u.getUsuTelefone());
-        cadastraTipo.setSelection(u.getUsuTipo().equalsIgnoreCase("") ? 0 : 1);
-    }
 }

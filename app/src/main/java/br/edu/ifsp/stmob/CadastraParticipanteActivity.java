@@ -3,9 +3,12 @@ package br.edu.ifsp.stmob;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.List;
 
 import br.edu.ifsp.stmob.dao.UsuarioDAO;
 import br.edu.ifsp.stmob.modelo.Usuario;
@@ -17,6 +20,8 @@ public class CadastraParticipanteActivity extends AppCompatActivity {
 
     private Usuario u;
     private UsuarioDAO dao;
+    private List<Usuario> usuarios;
+    private EditText cadastraCod;
     private EditText cadastraNome;
     private EditText cadastraEmail;
     private EditText cadastraSenha;
@@ -31,6 +36,7 @@ public class CadastraParticipanteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastra_participante);
 
+        cadastraCod = (EditText) findViewById(R.id.cadastraCod);
         cadastraNome = (EditText) findViewById(R.id.cadastraNome);
         cadastraEmail = (EditText) findViewById(R.id.cadastraEmail);
         cadastraSenha = (EditText) findViewById(R.id.cadastraSenha);
@@ -43,9 +49,9 @@ public class CadastraParticipanteActivity extends AppCompatActivity {
 
     public void salvar(View v)
     {
-
-        //System.out.println("ENTROU SALVAR");
-        u = new Usuario();
+        if (operacao.equalsIgnoreCase("Novo")) {
+            u = new Usuario();
+        }
 
         u.setUsuNome(cadastraNome.getText().toString());
         u.setUsuEmail(cadastraEmail.getText().toString());
@@ -55,8 +61,16 @@ public class CadastraParticipanteActivity extends AppCompatActivity {
                 .equalsIgnoreCase("Estudante") ? "Estudante" : "Professor");
 
         //System.out.println("DADOS:" + u.getUsuNome() + " - " + u.getUsuEmail());
-        dao.salvar(u);
-        exibirMensagem("Pessoa cadastrada com sucesso!");
+        if (operacao.equalsIgnoreCase("Novo"))
+        {
+            dao.salvar(u);
+            exibirMensagem("Participante cadastrado com sucesso!");
+        }
+        else
+        {
+            dao.atualizar(u);
+            exibirMensagem("Participante atualizado com sucesso!");
+        }
 
         limparDados();
     }
@@ -69,6 +83,7 @@ public class CadastraParticipanteActivity extends AppCompatActivity {
 
     private void limparDados()
     {
+        cadastraCod.setText("");
         cadastraNome.setText("");
         cadastraEmail.setText("");
         cadastraSenha.setText("");
@@ -76,9 +91,33 @@ public class CadastraParticipanteActivity extends AppCompatActivity {
         cadastraTipo.setSelection(0);
     }
 
+
+    private AdapterView.OnItemClickListener selecionarParticipante = new AdapterView.OnItemClickListener()
+    {
+        public void onItemClick(AdapterView<?> arg0, View arg1, int pos, long id)
+        {
+            operacao = new String("Atualizar");
+            u = usuarios.get(pos);
+            preecherDados(u);
+            }
+        };
+
+
+    // Preenche dados do usuário no caso de Atualização
+    private void preecherDados(Usuario usuario)
+    {
+        cadastraCod.setText(String.valueOf(usuario.getUsuCod()));
+        cadastraNome.setText(usuario.getUsuNome());
+        cadastraEmail.setText(usuario.getUsuEmail());
+        cadastraTelefone.setText(usuario.getUsuTelefone());
+        cadastraSenha.setText(usuario.getUsuSenha());
+        cadastraTipo.setSelection(usuario.getUsuTipo().equalsIgnoreCase("Estudante") ? 0 : 1);
+    }
+
+
+    // Seta mensagens de retorno
     private void exibirMensagem(String msg)
     {
         Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
     }
-
 }
