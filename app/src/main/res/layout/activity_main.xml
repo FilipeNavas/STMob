@@ -60,9 +60,9 @@
         android:layout_height="wrap_content"
         android:text="Mostra Atividade"
         android:id="@+id/btnMostraAtividade"
-        android:layout_below="@+id/btnLogin"
+        android:onClick="chamaMostraAtividadeActivity"
+        android:layout_below="@+id/btnTestarBanco"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="chamaMostraAtividadeActivity" />
+        android:layout_alignEnd="@+id/btnTestarBanco" />
 
 </RelativeLayout>
