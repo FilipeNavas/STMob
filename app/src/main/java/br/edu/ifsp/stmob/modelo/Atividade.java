@@ -1,15 +1,11 @@
 package br.edu.ifsp.stmob.modelo;
 
 import java.sql.Time;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
  * Created by cliente on 21/10/2015.
- *
- *  Módulo Inscrições
- *
  */
 public class Atividade {
     private int atvCod;
@@ -17,10 +13,10 @@ public class Atividade {
     private int getAtvVagasOcupadas;
     private String atvTitulo;
     private String atvDescricao;
-    private Time avtHorario;
+    private String atvHorario;
     private String atvLocal;
-    private Date atvData;
-
+    private String atvData;
+    private List<Atividade> atvList;
     //Campos devidos aos relacionamentos entre as classes
     private Palestrante avtPalestrante;
     private AreaConhecimento avtAreaConhecimento;
@@ -61,6 +57,13 @@ public class Atividade {
         this.atvDescricao = atvDescricao;
     }
 
+    public String getAtvHorario() {
+        return atvHorario;
+    }
+    public void setAtvHorario(String atvHorario) {
+        this.atvHorario = atvHorario;
+    }
+
     public String getAtvLocal() {
         return atvLocal;
     }
@@ -68,30 +71,31 @@ public class Atividade {
         this.atvLocal = atvLocal;
     }
 
-    public Date getAtvData() {
+    public String getAtvData() {
         return atvData;
     }
-    public void setAtvData(Date atvData) {
+    public void setAtvData(String atvData) {
         this.atvData = atvData;
     }
 
-    public Time getAvtHorario() { return avtHorario; }
+    public List<Atividade> buscarListaAtividade(String atvNome, String atvPales, int atvConhec){
+        return atvList;
+    }
 
-    public void setAvtHorario(Time avtHorario) { this.avtHorario = avtHorario; }
+    public Palestrante getAvtPalestrante() {
+        return avtPalestrante;
+    }
 
-    public Palestrante getAvtPalestrante() { return avtPalestrante; }
+    public void setAvtPalestrante(Palestrante avtPalestrante) {
+        this.avtPalestrante = avtPalestrante;
+    }
 
-    public void setAvtPalestrante(Palestrante avtPalestrante) { this.avtPalestrante = avtPalestrante; }
-
-    public AreaConhecimento getAvtAreaConhecimento() { return avtAreaConhecimento;}
+    public AreaConhecimento getAvtAreaConhecimento() {
+        return avtAreaConhecimento;
+    }
 
     public void setAvtAreaConhecimento(AreaConhecimento avtAreaConhecimento) {
         this.avtAreaConhecimento = avtAreaConhecimento;
-    }
-
-    public List<Atividade> buscarListaAtividade(String atvNome, String atvPales, int atvConhec){
-        List lista = new ArrayList();
-        return lista;
     }
 
     public Atividade buscarListaAtividadeEspecifica(int AtvCod){

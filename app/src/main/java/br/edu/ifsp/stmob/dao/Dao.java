@@ -121,6 +121,14 @@ public class DAO<T extends Object> extends SQLiteOpenHelper {
         {
             database.execSQL(pl);
         }
+
+        String[] atividades;
+        atividades = context.getResources().getStringArray(R.array.insertAtividadesBD
+        );
+        for(String at:atividades)
+        {
+            database.execSQL(at);
+        }
     }
 
     @Override

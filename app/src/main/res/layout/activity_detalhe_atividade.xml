@@ -80,7 +80,7 @@
 
     <LinearLayout
         android:orientation="horizontal" android:layout_width="match_parent"
-        android:layout_height="83dp">
+        android:layout_height="wrap_content">
 
         <Button
             android:layout_width="130dp"
@@ -100,16 +100,17 @@
             android:text="@string/btnPresenca"
             android:layout_gravity="right"/>
 
-        <Button
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnShare"
-            android:textSize="14sp"
-            android:text="@string/btnShare"
-            android:layout_gravity="right"/>
+
 
 
 
     </LinearLayout>
+    <Button
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnShare"
+        android:textSize="14sp"
+        android:text="@string/btnShare"
+        android:layout_gravity="left"/>
 
 </LinearLayout>

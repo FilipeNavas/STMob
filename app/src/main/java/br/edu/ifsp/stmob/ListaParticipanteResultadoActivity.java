@@ -7,7 +7,6 @@ import android.view.MenuItem;
 
 /**
  * Created by cliente on 21/10/2015.
- * Módulo Inscrições
  */
 public class ListaParticipanteResultadoActivity extends Activity {
     @Override

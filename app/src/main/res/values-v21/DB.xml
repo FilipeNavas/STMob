@@ -13,6 +13,15 @@
         <item>"INSERT INTO Palestrante (Nome_Palestrante,Apresentacao,Lattes) VALUES ('Nicardo Reves','Oi eu sou o nicardo','lattes.com.br/nicardoreves');"</item>
         <item>"INSERT INTO Palestrante (Nome_Palestrante,Apresentacao,Lattes) VALUES ('Austavo Garaujo','Oi eu sou o Austavo','lattes.com.br/austavogaraujo');"</item>
     </string-array>
+    <!-- Palestrantes-->
+    <string-array name="insertAtividadesBD">
+        <item>"INSERT INTO Atividade (Titulo,Descricao,Horario,Local,Data,Vagas_Limite,Vagas_Ocupadas,Area_Conhecimento_Cod_Area_Conhecimento,Palestrante_Cod_Palestrante)
+               VALUES ('Java Web','Oi eu sou o Bavid e vou lhes ensinar Java web',1740,'Auditorio','20/11/2015',40,0,1,1);"</item>
+         <item>"INSERT INTO Atividade (Titulo,Descricao,Horario,Local,Data,Vagas_Limite,Vagas_Ocupadas,Area_Conhecimento_Cod_Area_Conhecimento,Palestrante_Cod_Palestrante)
+               VALUES ('Banco de Dados','Oi eu sou o Austavo e vou lhes ensinar Banco de Dados',1630,'Sala 5','25/11/2015',20,0,2,2);"</item>
+         <item>"INSERT INTO Atividade (Titulo,Descricao,Horario,Local,Data,Vagas_Limite,Vagas_Ocupadas,Area_Conhecimento_Cod_Area_Conhecimento,Palestrante_Cod_Palestrante)
+               VALUES ('WebServices','Oi eu sou o Nicardo e vou lhes ensinar WebServices',1855,'Auditorio','27/11/2015',30,0,2,2);"</item>
+    </string-array>
 
 
 
