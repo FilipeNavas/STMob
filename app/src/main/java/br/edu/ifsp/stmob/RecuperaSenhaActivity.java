@@ -35,21 +35,29 @@ public class RecuperaSenhaActivity extends AppCompatActivity {
         UsuarioDAO usuarioDao = null;
         usuarioDao = new UsuarioDAO(getApplicationContext());
 
-        //Usuario participante = usuarioDao.getByEmail(email.getText().toString());
-        Usuario participante = usuarioDao.getByEmail("joaodasilva@hotmail.comsad");
+        String emailUsuario = email.getText().toString();
+        //System.out.println(emailUsuario);
 
-        System.out.println("Usuário: "+ participante.getUsuEmail());
-
-        if(participante.getUsuEmail() != null)
+        try
         {
-            Intent email = new Intent(Intent.ACTION_SEND);
-            email.putExtra(Intent.EXTRA_EMAIL, new String[]{participante.getUsuEmail()});
-            email.putExtra(Intent.EXTRA_SUBJECT, "STMob :: Recuperação de senha");
-            email.putExtra(Intent.EXTRA_TEXT, "Segue sua senha: "+participante.getUsuSenha());
-            email.setType("message/rfc822");
-            startActivity(Intent.createChooser(email, "Escolha um cliente de e-mail:"));
-        }
-        else
+            Usuario participante = usuarioDao.getByEmail(emailUsuario);
+
+            System.out.println("Usuário: " + participante.getUsuEmail());
+
+            if (participante.getUsuEmail() != null)
+            {
+                Intent email = new Intent(Intent.ACTION_SEND);
+                email.putExtra(Intent.EXTRA_EMAIL, new String[]{participante.getUsuEmail()});
+                email.putExtra(Intent.EXTRA_SUBJECT, "STMob :: Recuperação de senha");
+                email.putExtra(Intent.EXTRA_TEXT, "Segue sua senha: " + participante.getUsuSenha());
+                email.setType("message/rfc822");
+                startActivity(Intent.createChooser(email, "Escolha um cliente de e-mail:"));
+            }
+            else
+            {
+                exibirMensagem("E-mail não encontrado em nosso sistema!");
+            }
+        } catch (Exception e)
         {
             exibirMensagem("E-mail não encontrado em nosso sistema!");
         }
