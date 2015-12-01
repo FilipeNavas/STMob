@@ -35,15 +35,21 @@
         </activity>
         <activity android:name=".CadastraParticipanteActivity" >
         </activity>
-        <activity android:name=".BuscaAtividadeResultado" >
-        </activity>
         <activity android:name=".BuscaAtividadesnenhumretornto" >
-        </activity>
-        <activity android:name=".BuscarAtividades" >
         </activity>
         <activity android:name=".MostraAtividadeActivity" >
         </activity>
         <activity android:name=".AlteraInformacoesPessoais" >
+        </activity>
+        <activity android:name=".BuscarAtividadesActivity" >
+        </activity>
+        <activity android:name=".BuscaAtividadeResultadoActivity" >
+        </activity>
+        <activity android:name=".DetalheAtividadeActivity" >
+        </activity>
+        <activity android:name=".ListaParticipanteFiltroActivity" >
+        </activity>
+        <activity android:name=".ListaParticipanteResultadoActivity" >
         </activity>
     </application>
 

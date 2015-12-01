@@ -1,10 +1,8 @@
 package br.edu.ifsp.stmob;
 
-import android.app.AlertDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -126,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void chamaBuscarAtividadesActivity (View view){
 
-        Intent buscarAtividadesActivity = new Intent(this, BuscarAtividades.class);
+        Intent buscarAtividadesActivity = new Intent(this, BuscarAtividadesActivity.class);
         startActivity(buscarAtividadesActivity);
     }
 
