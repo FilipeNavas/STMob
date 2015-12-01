@@ -3,6 +3,7 @@ package br.edu.ifsp.stmob;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -46,12 +47,24 @@ public class RecuperaSenhaActivity extends AppCompatActivity {
 
             if (participante.getUsuEmail() != null)
             {
-                Intent email = new Intent(Intent.ACTION_SEND);
-                email.putExtra(Intent.EXTRA_EMAIL, new String[]{participante.getUsuEmail()});
-                email.putExtra(Intent.EXTRA_SUBJECT, "STMob :: Recuperação de senha");
-                email.putExtra(Intent.EXTRA_TEXT, "Segue sua senha: " + participante.getUsuSenha());
-                email.setType("message/rfc822");
-                startActivity(Intent.createChooser(email, "Escolha um cliente de e-mail:"));
+
+                Intent emailSend = new Intent(Intent.ACTION_SEND);
+                emailSend.putExtra(Intent.EXTRA_EMAIL, new String[]{participante.getUsuEmail()});
+                emailSend.putExtra(Intent.EXTRA_SUBJECT, "STMob :: Recuperação de senha");
+//                email.putExtra(Intent.EXTRA_TEXT, msg);
+                emailSend.putExtra(
+                        Intent.EXTRA_TEXT,
+                        Html.fromHtml(new StringBuilder()
+                                .append("Saudações, " + participante.getUsuNome() + "<br /><br />")
+                                .append("Você solicitou que recuperássemos sua senha.<br /><br />")
+                                .append("Seu usuário: " + participante.getUsuEmail() + "<br />")
+                                .append("Sua senha: " + participante.getUsuSenha() + "<br /><br /><br />")
+                        .append("---<br />Atenciosamente, <br />Equipe STMob")
+                        .toString())
+                );
+                emailSend.setType("message/rfc822");
+                startActivity(Intent.createChooser(emailSend, "Escolha um cliente de e-mail:"));
+
             }
             else
             {
