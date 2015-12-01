@@ -22,7 +22,7 @@ public class AvisoExtraordinarioDAO extends DAO<AvisoExtraordinario> {
 
     public AvisoExtraordinarioDAO(Context context) {
         super(context);
-        campos = new String[]{"Cod_Aviso","Titulo","Data","Descricao","Horario","Atividade_Cod_Atividade"};
+        campos = new String[]{"Cod_Aviso", "Titulo", "Data", "Descricao", "Horario", "Atividade_Cod_Atividade"};
         tableName = "Aviso_Extraordinario";
         database = getWritableDatabase();
 
@@ -34,12 +34,10 @@ public class AvisoExtraordinarioDAO extends DAO<AvisoExtraordinario> {
 
         Cursor cursor = executeSelect("Titulo = ?", new String[]{titulo}, null);
 
-        if(cursor!=null && cursor.moveToFirst())
-        {
+        if (cursor != null && cursor.moveToFirst()) {
             avisoExtraordinario = serializeByCursor(cursor);
         }
-        if(!cursor.isClosed())
-        {
+        if (!cursor.isClosed()) {
             cursor.close();
         }
 
@@ -52,12 +50,10 @@ public class AvisoExtraordinarioDAO extends DAO<AvisoExtraordinario> {
 
         Cursor cursor = executeSelect("Cod_Aviso = ?", new String[]{String.valueOf(codAviso)}, null);
 
-        if(cursor!=null && cursor.moveToFirst())
-        {
+        if (cursor != null && cursor.moveToFirst()) {
             avisoExtraordinario = serializeByCursor(cursor);
         }
-        if(!cursor.isClosed())
-        {
+        if (!cursor.isClosed()) {
             cursor.close();
         }
 
@@ -70,17 +66,15 @@ public class AvisoExtraordinarioDAO extends DAO<AvisoExtraordinario> {
         Cursor cursor = executeSelect(null, null, "1");
 
 
-        if(cursor!=null && cursor.moveToFirst())
-        {
-            do{
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
                 list.add(serializeByCursor(cursor));
-            }while(cursor.moveToNext());
+            } while (cursor.moveToNext());
 
 
         }
 
-        if(!cursor.isClosed())
-        {
+        if (!cursor.isClosed()) {
             cursor.close();
         }
 
@@ -98,7 +92,7 @@ public class AvisoExtraordinarioDAO extends DAO<AvisoExtraordinario> {
         Cursor cursor = null;
 
         //Se tiver a data e o horario, faz o select com eles
-        if( String.valueOf(avisoExtraordinario.getAviHorario()) != null && String.valueOf(avisoExtraordinario.getAviData()) != null) {
+        if (String.valueOf(avisoExtraordinario.getAviHorario()) != null && String.valueOf(avisoExtraordinario.getAviData()) != null) {
             cursor =
                     executeSelect("Atividade_Cod_Atividade = ? AND (Data = ? AND Horario)",
                             new String[]{String.valueOf(avisoExtraordinario.getAviAtividade().getAtvCod()),
@@ -106,8 +100,8 @@ public class AvisoExtraordinarioDAO extends DAO<AvisoExtraordinario> {
                                     String.valueOf(avisoExtraordinario.getAviHorario())},
                             null);
 
-        //Senão, faz somente com o cod da atividade
-        }else{
+            //Senão, faz somente com o cod da atividade
+        } else {
             cursor =
                     executeSelect("Atividade_Cod_Atividade = ?",
                             new String[]{String.valueOf(avisoExtraordinario.getAviAtividade().getAtvCod())},
@@ -115,17 +109,15 @@ public class AvisoExtraordinarioDAO extends DAO<AvisoExtraordinario> {
         }
 
 
-        if(cursor!=null && cursor.moveToFirst())
-        {
-            do{
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
                 list.add(serializeByCursor(cursor));
-            }while(cursor.moveToNext());
+            } while (cursor.moveToNext());
 
 
         }
 
-        if(!cursor.isClosed())
-        {
+        if (!cursor.isClosed()) {
             cursor.close();
         }
 
@@ -146,30 +138,20 @@ public class AvisoExtraordinarioDAO extends DAO<AvisoExtraordinario> {
         values.put("Horario", String.valueOf(avisoExtraordinario.getAviHorario()));
         values.put("Atividade_Cod_Atividade", avisoExtraordinario.getAviAtividade().getAtvCod()); //Chave Estrangeira
 
-        if(database.insert(tableName, null, values)>0)
-            return true;
-        else
-            return false;
+        return database.insert(tableName, null, values) > 0;
     }
 
     public boolean deletar(Integer codAviso) {
-        if(database.delete(tableName, "Cod_Aviso = ?", new String[]{String.valueOf(codAviso)})>0)
-            return true;
-        else
-            return false;
+        return database.delete(tableName, "Cod_Aviso = ?", new String[]{String.valueOf(codAviso)}) > 0;
     }
 
     public boolean atualizar(AvisoExtraordinario avisoExtraordinario) {
         ContentValues values = serializeContentValues(avisoExtraordinario);
-        if(database.update(tableName, values, "Cod_Aviso = ?", new String[]{String.valueOf(avisoExtraordinario.getAviCod())})>0)
-            return true;
-        else
-            return false;
+        return database.update(tableName, values, "Cod_Aviso = ?", new String[]{String.valueOf(avisoExtraordinario.getAviCod())}) > 0;
     }
 
 
-    private AvisoExtraordinario serializeByCursor(Cursor cursor)
-    {
+    private AvisoExtraordinario serializeByCursor(Cursor cursor) {
         AvisoExtraordinario avisoExtraordinario = new AvisoExtraordinario();
         avisoExtraordinario.setAviCod(cursor.getInt(0));
         avisoExtraordinario.setAviTitulo(cursor.getString(1));
@@ -193,8 +175,7 @@ public class AvisoExtraordinarioDAO extends DAO<AvisoExtraordinario> {
 
     }
 
-    private ContentValues serializeContentValues(AvisoExtraordinario avisoExtraordinario)
-    {
+    private ContentValues serializeContentValues(AvisoExtraordinario avisoExtraordinario) {
         ContentValues values = new ContentValues();
         values.put("Cod_Aviso", avisoExtraordinario.getAviCod());
         values.put("Titulo", avisoExtraordinario.getAviTitulo());
@@ -206,10 +187,9 @@ public class AvisoExtraordinarioDAO extends DAO<AvisoExtraordinario> {
         return values;
     }
 
-    private Cursor executeSelect(String selection, String[] selectionArgs, String orderBy)
-    {
+    private Cursor executeSelect(String selection, String[] selectionArgs, String orderBy) {
 
-        return database.query(tableName,campos, selection, selectionArgs, null, null, orderBy);
+        return database.query(tableName, campos, selection, selectionArgs, null, null, orderBy);
 
     }
 

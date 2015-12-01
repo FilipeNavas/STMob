@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             List<Usuario> list = usuarioDao.listAll();
             for (Usuario objeto : list) {
                 System.out.println("RESULTADO USUARIO: " + objeto.getUsuNome());
-            }
+        }
 
             //Lista o feedback do banco
             List<Feedback> listFeedback = feedbackDao.listAll();
@@ -134,11 +134,17 @@ public class MainActivity extends AppCompatActivity {
         startActivity(cadastrarParticipantesActivity);
     }
 
-//    public void chamaMostraAtividadeActivity (View view){
-//
-//        Intent mostraAtividadeActivity = new Intent(this, MostraAtividadeActivity.class);
-//        startActivity(mostraAtividadeActivity);
-//    }
+    public void emiteLembreteActivity(View view) {
+        Intent emiteLembreteActivity = new Intent(this, EmiteLembreteActivity.class);
+        startActivity(emiteLembreteActivity);
+
+    }
+
+
+    public void chamaMostraAtividadeActivity (View view){
+        Intent mostraAtividadeActivity = new Intent(this, MostraAtividadeActivity.class);
+        startActivity(mostraAtividadeActivity);
+   }
 
 
 
