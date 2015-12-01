@@ -45,6 +45,8 @@
         </activity>
         <activity android:name=".AlteraInformacoesPessoais" >
         </activity>
+        <activity android:name=".EmiteLembreteActivity" >
+        </activity>
     </application>
 
 </manifest>
