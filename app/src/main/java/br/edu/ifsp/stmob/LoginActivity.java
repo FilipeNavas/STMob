@@ -107,6 +107,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         startActivity(cadastraParticipanteActivity);
     }
 
+    public void chamaRecuperarSenhaActivity (View view)
+    {
+        Intent recuperarSenhaActivity = new Intent(this, RecuperaSenhaActivity.class);
+        startActivity(recuperarSenhaActivity);
+    }
+
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {
             return;
