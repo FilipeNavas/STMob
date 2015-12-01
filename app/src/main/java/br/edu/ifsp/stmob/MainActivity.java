@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
             List<Usuario> list = usuarioDao.listAll();
             for (Usuario objeto : list) {
                 System.out.println("RESULTADO USUARIO: " + objeto.getUsuNome());
-            }
+        }
 
             //Lista o feedback do banco
             List<Feedback> listFeedback = feedbackDao.listAll();

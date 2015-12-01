@@ -13,7 +13,6 @@ import br.edu.ifsp.stmob.modelo.Usuario;
 public class RecuperaSenhaActivity extends AppCompatActivity {
 
     private Usuario u;
-    private UsuarioDAO dao;
     private EditText email;
 
     @Override
@@ -22,23 +21,31 @@ public class RecuperaSenhaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recupera_senha);
 
         email = (EditText) findViewById(R.id.recSenhaEmail);
-        dao = new UsuarioDAO(getApplicationContext());
     }
 
 
-    // I Passo: verificar se o email está cadastrado no banco
-    // II Passo: selecionar senha do banco
-    // III Passo: enviar e-mail com a senha para o usuário
+    /*
+     * I Passo: verificar se o email está cadastrado no banco
+     * II Passo: selecionar senha do banco
+     * III Passo: enviar e-mail com a senha para o usuário
+     *
+     */
     public void recuperarSenha(View v)
     {
-        Usuario user = dao.getByEmail(email.getText().toString());
+        UsuarioDAO usuarioDao = null;
+        usuarioDao = new UsuarioDAO(getApplicationContext());
 
-        if(user.getUsuEmail() != null)
+        //Usuario participante = usuarioDao.getByEmail(email.getText().toString());
+        Usuario participante = usuarioDao.getByEmail("joaodasilva@hotmail.comsad");
+
+        System.out.println("Usuário: "+ participante.getUsuEmail());
+
+        if(participante.getUsuEmail() != null)
         {
             Intent email = new Intent(Intent.ACTION_SEND);
-            email.putExtra(Intent.EXTRA_EMAIL, new String[]{user.getUsuEmail()});
+            email.putExtra(Intent.EXTRA_EMAIL, new String[]{participante.getUsuEmail()});
             email.putExtra(Intent.EXTRA_SUBJECT, "STMob :: Recuperação de senha");
-            email.putExtra(Intent.EXTRA_TEXT, "Segue sua senha: "+user.getUsuSenha());
+            email.putExtra(Intent.EXTRA_TEXT, "Segue sua senha: "+participante.getUsuSenha());
             email.setType("message/rfc822");
             startActivity(Intent.createChooser(email, "Escolha um cliente de e-mail:"));
         }

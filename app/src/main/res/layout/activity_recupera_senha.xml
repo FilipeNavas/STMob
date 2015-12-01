@@ -32,5 +32,7 @@
         android:layout_height="wrap_content"
         android:text="Enviar"
         android:onClick="recuperarSenha"
-        android:id="@+id/btnRecSenha" />
+        android:id="@+id/btnRecSenha"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
