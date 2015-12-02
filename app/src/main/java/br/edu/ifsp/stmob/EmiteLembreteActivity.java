@@ -28,7 +28,7 @@ public class EmiteLembreteActivity extends Activity {
                    Intent emailIntent = new Intent(Intent.ACTION_SEND);
                   // emailIntent.putExtra(Intent.EXTRA_EMAIL,new String[] {"teste@gmail.com"});
                    emailIntent.putExtra(Intent.EXTRA_SUBJECT,"Semana de Tecnologia IFSP");
-                   emailIntent.putExtra(Intent.EXTRA_TEXT,"Não se esqueça Semana de Tecnologia IFSP São joão da Boa Vista na semana do dia 19/10 ao dia 23/10");
+                   emailIntent.putExtra(Intent.EXTRA_TEXT,"Não se esqueça o evento ocorrerá entre 19 e 22 de outubro de 2015 no câmpus São João da Boa Vista do Instituto Federal de Educação, Ciência e Tecnologia de São Paulo (IFSP-SBV). O tema deste ano será: \"Luz, Ciência e Vida\". Atividades com horários previstos das 8:30 às 22:00.");
                    emailIntent.setType("message/rfc822");
                    startActivity(emailIntent);
                }catch (ActivityNotFoundException anfe){

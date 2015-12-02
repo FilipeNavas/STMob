@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             //Lista o usuario do banco
             List<Usuario> list = usuarioDao.listAll();
             for (Usuario objeto : list) {
-                System.out.println("RESULTADO USUARIO: " + objeto.getUsuNome());
+                System.out.println("RESULTADO USUARIO: " + objeto.getUsuNome() + "  Cod: " + objeto.getUsuCod());
         }
 
             //Lista o feedback do banco
@@ -160,12 +160,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void alterarInformacoesPessoais(View view) {
+    public void chamaAlterarInformacoesPessoais(View view) {
         Intent alteraInfo = new Intent(this, AlteraInformacoesPessoais.class);
         startActivity(alteraInfo);
 
     }
-
 /*
     public void chamaMostraAtividadeActivity (View view){
         Intent mostraAtividadeActivity = new Intent(this, MostraAtividadeActivity.class);
