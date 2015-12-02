@@ -26,7 +26,7 @@ public class AlteraInformacoesPessoais extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_altera_informacoes_pessoais);
 
-        cadastraCod = (EditText) findViewById(R.id.cadastraCod);
+      //  cadastraCod = (EditText) findViewById(R.id.cadastraCod);
         cadastraNome = (EditText) findViewById(R.id.cadastraNome);
         cadastraEmail = (EditText) findViewById(R.id.cadastraEmail);
         cadastraTelefone = (EditText) findViewById(R.id.cadastraTelefone);
