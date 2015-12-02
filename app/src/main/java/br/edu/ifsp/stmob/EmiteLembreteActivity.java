@@ -26,9 +26,9 @@ public class EmiteLembreteActivity extends Activity {
             public void onClick(View v) {
                try {
                    Intent emailIntent = new Intent(Intent.ACTION_SEND);
-                   emailIntent.putExtra(Intent.EXTRA_EMAIL,new String[] {"teste@gmail.com"});
-                   emailIntent.putExtra(Intent.EXTRA_SUBJECT,"teste");
-                   emailIntent.putExtra(Intent.EXTRA_TEXT,"STMob");
+                  // emailIntent.putExtra(Intent.EXTRA_EMAIL,new String[] {"teste@gmail.com"});
+                   emailIntent.putExtra(Intent.EXTRA_SUBJECT,"Semana de Tecnologia IFSP");
+                   emailIntent.putExtra(Intent.EXTRA_TEXT,"Não se esqueça Semana de Tecnologia IFSP São joão da Boa Vista na semana do dia 19/10 ao dia 23/10");
                    emailIntent.setType("message/rfc822");
                    startActivity(emailIntent);
                }catch (ActivityNotFoundException anfe){
