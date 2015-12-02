@@ -44,6 +44,32 @@ public class InscricaoDAO extends DAO<Inscricao> {
         return inscricao;
     }
 
+
+    public List<Inscricao> listaInscricoesUsuario(int codigo) {
+        List<Inscricao> list = new ArrayList<Inscricao>();
+        Cursor cursor = executeSelect("Usuario_Cod_Usuario = ?", new String[]{String.valueOf(codigo)}, null);
+
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                list.add(serializeByCursor(cursor));
+            } while (cursor.moveToNext());
+
+
+        }
+
+        if (!cursor.isClosed()) {
+            cursor.close();
+        }
+
+        return list;
+
+
+    }
+
+
+
+
     public List<Inscricao> listAll() {
         List<Inscricao> list = new ArrayList<Inscricao>();
         Cursor cursor = executeSelect(null, null, "1");
@@ -65,6 +91,8 @@ public class InscricaoDAO extends DAO<Inscricao> {
 
 
     }
+
+
 
     public boolean salvar(Inscricao inscricao) {
         //ContentValues values = serializeContentValues(inscricao);

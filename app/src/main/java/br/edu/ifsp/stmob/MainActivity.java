@@ -153,6 +153,11 @@ public class MainActivity extends AppCompatActivity {
         Intent meuPerfil = new Intent(this, PerfilActivity.class);
         startActivity(meuPerfil);
     }
+
+    public void chamaListaInscricao(View view) {
+        Intent inscricao = new Intent(this, ListaInscricaoActivity.class);
+        startActivity(inscricao);
+    }
 /*
     public void chamaMostraAtividadeActivity (View view){
         Intent mostraAtividadeActivity = new Intent(this, MostraAtividadeActivity.class);

@@ -98,10 +98,10 @@ public class PerfilActivity extends AppCompatActivity {
 
     }
 
-    public void chamaBuscaAvisoActivity (View view){
+    public void chamaCadastraAvisoActivity (View view){
 
-        Intent buscaAvisoActivity = new Intent(this, BuscaAvisoExtraordinarioActivity.class);
-        startActivity(buscaAvisoActivity);
+        Intent cadastraAvisoActivity = new Intent(this, CadastraAvisoExtraordinarioActivity.class);
+        startActivity(cadastraAvisoActivity);
     }
 
     public void logout(View view) {

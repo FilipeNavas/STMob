@@ -29,6 +29,8 @@
                VALUES ('Filipe Navas','filipenavas@gmail.com','123','Administrador','999999999');"</item>
         <item>"INSERT INTO Usuario (Nome,Email,Senha,Tipo,Telefone)
                VALUES ('Administrador','admin@admin.com','123','Administrador','999999999');"</item>
+        <item>"INSERT INTO Usuario (Nome,Email,Senha,Tipo,Telefone)
+               VALUES ('Admin Teste','admin@teste.com','asd','Administrador','999999999');"</item>
     </string-array>
 
 
