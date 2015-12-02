@@ -9,9 +9,9 @@
     </string-array>
     <!-- Palestrantes-->
     <string-array name="insertPalestrantesBD">
-        <item>"INSERT INTO Palestrante (Nome_Palestrante,Apresentacao,Lattes) VALUES ('Bavid Duzatto','Oi eu sou o Bavid','lattes.com.br/bavidbuzatto');"</item>
-        <item>"INSERT INTO Palestrante (Nome_Palestrante,Apresentacao,Lattes) VALUES ('Nicardo Reves','Oi eu sou o nicardo','lattes.com.br/nicardoreves');"</item>
-        <item>"INSERT INTO Palestrante (Nome_Palestrante,Apresentacao,Lattes) VALUES ('Austavo Garaujo','Oi eu sou o Austavo','lattes.com.br/austavogaraujo');"</item>
+        <item>"INSERT INTO Palestrante (Nome_Palestrante,Apresentacao,Lattes) VALUES ('Bavid Duzatto','Oi eu sou o Bavid','https://lattes.com.br/bavidbuzatto');"</item>
+        <item>"INSERT INTO Palestrante (Nome_Palestrante,Apresentacao,Lattes) VALUES ('Nicardo Reves','Oi eu sou o nicardo','https://lattes.com.br/nicardoreves');"</item>
+        <item>"INSERT INTO Palestrante (Nome_Palestrante,Apresentacao,Lattes) VALUES ('Austavo Garaujo','Oi eu sou o Austavo','https://lattes.com.br/austavogaraujo');"</item>
     </string-array>
     <!-- Palestrantes-->
     <string-array name="insertAtividadesBD">

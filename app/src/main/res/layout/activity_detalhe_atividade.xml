@@ -45,7 +45,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textColor="#00F"
+        />
 
     <TextView
         android:id="@+id/txtLocal"
@@ -105,6 +107,9 @@
 
 
     </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <Button
         android:layout_width="130dp"
         android:layout_height="wrap_content"
@@ -113,4 +118,12 @@
         android:text="@string/btnShare"
         android:layout_gravity="left"/>
 
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAgenda"
+            android:textSize="14sp"
+            android:text="Agenda"
+            android:layout_gravity="left"/>
+    </LinearLayout>
 </LinearLayout>

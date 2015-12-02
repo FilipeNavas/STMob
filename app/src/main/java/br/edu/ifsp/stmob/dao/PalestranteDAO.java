@@ -7,10 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import br.edu.ifsp.stmob.modelo.Palestrante;
 
-/**
- * Created by Módulo Eventos
- */
-
 public class PalestranteDAO extends DAO<Palestrante> {
 
     private SQLiteDatabase database;

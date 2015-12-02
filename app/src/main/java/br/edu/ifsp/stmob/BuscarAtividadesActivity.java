@@ -57,10 +57,6 @@ public class BuscarAtividadesActivity extends Activity {
                 it.putExtra("pls",spPalestrante.getSelectedItem().toString());
                 it.putExtra("arc",spAreaConhecimento.getSelectedItem().toString());
                 startActivity(it);
-
-
-
-
             }
         });
 

@@ -81,9 +81,38 @@ public class InscricaoDAO extends DAO<Inscricao> {
         else
             return false;
     }
+    public Inscricao isInscrito(Integer codAtividade,Integer codUsuario) {
+        Inscricao inscricao = new Inscricao();
 
-    public boolean deletar(Integer codigo) {
-        if (database.delete(tableName, "Cod_Inscricao = ?", new String[]{String.valueOf(codigo)}) > 0)
+        Cursor cursor = executeSelect("Atividade_Cod_Atividade = ? and Usuario_Cod_Usuario = ? ",
+                new String[]{String.valueOf(codAtividade),String.valueOf(codUsuario)}, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            inscricao = serializeByCursor(cursor);
+        }else{
+            inscricao.setInsCod(0);
+        }
+        if (!cursor.isClosed()) {
+            cursor.close();
+        }
+        return inscricao;
+    }
+    public boolean inscricao (Inscricao inscricao){
+        ContentValues values = new ContentValues();
+
+        values.put("Atividade_Cod_Atividade", inscricao.getInsAtividade().getAtvCod()); //Chave Estrangeira
+        values.put("Usuario_Cod_Usuario", inscricao.getInsUsuario().getUsuCod()); //Chave Estrangeira
+
+        if (database.insert(tableName, null, values) > 0)
+            return true;
+        else
+            return false;
+
+
+    }
+
+    public boolean deletar(Integer codInscricao) {
+        if (database.delete(tableName, "Cod_Inscricao = ?", new String[]{String.valueOf(codInscricao)}) > 0)
             return true;
         else
             return false;
@@ -148,5 +177,7 @@ public class InscricaoDAO extends DAO<Inscricao> {
         return database.query(tableName, campos, selection, selectionArgs, null, null, orderBy);
 
     }
+
+
 
 }
