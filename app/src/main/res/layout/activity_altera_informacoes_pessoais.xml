@@ -38,12 +38,6 @@
 
     </android.support.design.widget.TextInputLayout>
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/cadastraTipo"
-        android:entries="@array/tipo_array"
-        android:prompt="@string/tipo_prompt" />
 
     <Button
         android:layout_width="wrap_content"

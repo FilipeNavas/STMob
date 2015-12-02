@@ -26,14 +26,18 @@ public class AlteraInformacoesPessoais extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_altera_informacoes_pessoais);
 
-      //  cadastraCod = (EditText) findViewById(R.id.cadastraCod);
         cadastraNome = (EditText) findViewById(R.id.cadastraNome);
         cadastraEmail = (EditText) findViewById(R.id.cadastraEmail);
         cadastraTelefone = (EditText) findViewById(R.id.cadastraTelefone);
-        cadastraTipo = (Spinner) findViewById(R.id.cadastraTipo);
 
-        //u = usuarios.get(); pega usuário pelo código setado na sessão
-        preecherDados(u);// Preenche formulário com os dados do usuário
+        dao = new UsuarioDAO(getApplicationContext());
+
+        u = dao.getByCod(20); //pega usuário pelo código setado na sessão
+
+        cadastraNome.setText(u.getUsuNome());
+        cadastraEmail.setText(u.getUsuEmail());
+        cadastraTelefone.setText(u.getUsuTelefone());
+
     }
 
 
@@ -47,14 +51,13 @@ public class AlteraInformacoesPessoais extends AppCompatActivity {
     }
 
 
-    private void preecherDados(Usuario usuario)
-    {
-        cadastraNome.setText(usuario.getUsuNome());
-        cadastraEmail.setText(usuario.getUsuEmail());
-        cadastraTelefone.setText(usuario.getUsuTelefone());
-        cadastraTipo.setSelection(usuario.getUsuTipo().equalsIgnoreCase("Estudante") ? 0 : 1);
-
-    }
+//    private void preecherDados(Usuario usuario)
+//    {
+//        cadastraNome.setText(usuario.getUsuNome());
+//        cadastraEmail.setText(usuario.getUsuEmail());
+//        cadastraTelefone.setText(usuario.getUsuTelefone());
+//        cadastraTipo.setSelection(usuario.getUsuTipo().equalsIgnoreCase("Estudante") ? 0 : 1);
+//    }
 
     private void exibirMensagem(String msg)
     {
