@@ -123,10 +123,10 @@ public class CadastraParticipanteActivity extends AppCompatActivity {
     }
 
 
-    public void voltarTelaInicial(View view) {
+    public void voltarTelaInicial(View view)
+    {
         Intent telaInicial = new Intent(this, MainActivity.class);
         startActivity(telaInicial);
-
     }
 
 }
