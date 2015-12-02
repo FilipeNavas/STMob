@@ -134,9 +134,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void chamaMostraAtividadeActivity (View view){
-        Intent mostraAtividadeActivity = new Intent(this, MostraAtividadeActivity.class);
-        startActivity(mostraAtividadeActivity);
+    public void chamaGradeAtividadesCompleta (View view){
+        Intent gradeAtividadesCompleta = new Intent(this, GradeAtividadesCompletaActivity.class);
+        startActivity(gradeAtividadesCompleta);
    }
 
 

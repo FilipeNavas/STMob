@@ -53,6 +53,10 @@
         </activity>
         <activity android:name=".DetalhePalestranteActivity" >
         </activity>
+        <activity
+            android:name=".GradeAtividadesCompletaActivity"
+            android:label="@string/title_activity_grade_atividades_completa" >
+        </activity>
     </application>
 
 </manifest>
