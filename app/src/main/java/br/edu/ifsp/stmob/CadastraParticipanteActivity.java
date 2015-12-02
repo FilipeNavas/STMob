@@ -1,5 +1,6 @@
 package br.edu.ifsp.stmob;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -120,4 +121,12 @@ public class CadastraParticipanteActivity extends AppCompatActivity {
     {
         Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
     }
+
+
+    public void voltarTelaInicial(View view) {
+        Intent telaInicial = new Intent(this, MainActivity.class);
+        startActivity(telaInicial);
+
+    }
+
 }

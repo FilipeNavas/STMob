@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/alteraCod"
+        android:id="@+id/cadastraCod"
         android:layout_marginTop="54dp"
         android:hint="Cod" />
 
