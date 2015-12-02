@@ -123,8 +123,7 @@ public class DAO<T extends Object> extends SQLiteOpenHelper {
         }
 
         String[] atividades;
-        atividades = context.getResources().getStringArray(R.array.insertAtividadesBD
-        );
+        atividades = context.getResources().getStringArray(R.array.insertAtividadesBD);
         for(String at:atividades)
         {
             database.execSQL(at);

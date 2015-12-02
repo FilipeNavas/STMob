@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
         UsuarioDAO usuarioDao = null;
         FeedbackDAO feedbackDao = null;
 
-        try {
             //Cria um usuario
             Usuario usuario = new Usuario();
             usuario.setUsuNome("Joao da Silva");
@@ -107,12 +106,6 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("RESULTADO FEEDBACK COD USU: " + objeto.getFeeUsuario().getUsuCod());
             }
 
-        }catch(Exception e){
-            System.out.println("ERROR: " + e.getStackTrace());
-        }finally{
-            usuarioDao.close();
-            feedbackDao.close();
-        }
     }
 
 

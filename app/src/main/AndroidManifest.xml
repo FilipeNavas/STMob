@@ -37,8 +37,6 @@
         </activity>
         <activity android:name=".BuscaAtividadesnenhumretornto" >
         </activity>
-        <activity android:name=".MostraAtividadeActivity" >
-        </activity>
         <activity android:name=".AlteraInformacoesPessoais" >
         </activity>
         <activity android:name=".BuscarAtividadesActivity" >
