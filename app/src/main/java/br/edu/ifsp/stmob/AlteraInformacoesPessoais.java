@@ -8,7 +8,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 import br.edu.ifsp.stmob.dao.UsuarioDAO;
+import br.edu.ifsp.stmob.modelo.GerenciadorSessao;
 import br.edu.ifsp.stmob.modelo.Usuario;
 
 public class AlteraInformacoesPessoais extends AppCompatActivity {
@@ -21,6 +24,9 @@ public class AlteraInformacoesPessoais extends AppCompatActivity {
     private EditText cadastraTelefone;
     private Spinner cadastraTipo;
 
+    //Sessao
+    private GerenciadorSessao sessao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +38,16 @@ public class AlteraInformacoesPessoais extends AppCompatActivity {
 
         dao = new UsuarioDAO(getApplicationContext());
 
-        u = dao.getByCod(20); //pega usuário pelo código setado na sessão
+        //Pega a sessao
+        sessao = new GerenciadorSessao(getApplicationContext());
+
+        //pega os dados da sessao
+        HashMap<String, String> user = sessao.pegarDadosUsuario();
+
+        //pega o codigo do usuario da sessao
+        int codigoUsuario = Integer.parseInt(user.get(GerenciadorSessao.CHAVE_CODIGO));
+
+        u = dao.getByCod(codigoUsuario); //pega usuário pelo código setado na sessão
 
         cadastraNome.setText(u.getUsuNome());
         cadastraEmail.setText(u.getUsuEmail());

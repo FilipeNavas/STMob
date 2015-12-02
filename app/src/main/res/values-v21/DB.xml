@@ -23,6 +23,14 @@
                VALUES ('WebServices','Oi eu sou o Nicardo e vou lhes ensinar WebServices',1855,'Auditorio','27/11/2015',30,0,2,2);"</item>
     </string-array>
 
+    <!-- USUARIOS ADMIN-->
+    <string-array name="insertUsuariosAdminBD">
+        <item>"INSERT INTO Usuario (Nome,Email,Senha,Tipo,Telefone)
+               VALUES ('Filipe Navas','filipenavas@gmail.com','123','Administrador','999999999');"</item>
+        <item>"INSERT INTO Usuario (Nome,Email,Senha,Tipo,Telefone)
+               VALUES ('Administrador','admin@admin.com','123','Administrador','999999999');"</item>
+    </string-array>
+
 
 
 </resources>

@@ -1,12 +1,8 @@
 package br.edu.ifsp.stmob;
 
 import android.app.Activity;
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 /**
  * Created by Simione on 01/12/2015.
@@ -20,6 +16,8 @@ public class EmiteLembreteActivity extends Activity {
         super.onCreate(estadoInstancia);
         setContentView(R.layout.activity_main);
 
+        /*
+        * Codigo migrado para o botao emitir lembrete na activity MeuPefil
         btnEmiteLembrete = (Button) findViewById(R.id.btnEmiteLembrete);
         btnEmiteLembrete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,7 +36,7 @@ public class EmiteLembreteActivity extends Activity {
             }
         });
 
-
+        */
     }
 
 }

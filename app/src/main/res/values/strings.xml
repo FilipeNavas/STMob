@@ -50,6 +50,7 @@
     <string name="result_failed_why">Por que algo aconteceu!</string>
 
     <string name="Inscrever"> Inscrever</string>
+    <string name="title_activity_perfil">Meu Perfil</string>
 
 
 </resources>

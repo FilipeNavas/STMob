@@ -131,12 +131,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void chamaBuscaAvisoActivity (View view){
-
-        Intent buscaAvisoActivity = new Intent(this, BuscaAvisoExtraordinarioActivity.class);
-        startActivity(buscaAvisoActivity);
-    }
-
     public void chamaBuscarAtividadesActivity (View view){
 
         Intent buscarAtividadesActivity = new Intent(this, BuscarAtividadesActivity.class);
@@ -149,21 +143,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(cadastrarParticipantesActivity);
     }
 
-    public void emiteLembreteActivity(View view) {
-        Intent emiteLembreteActivity = new Intent(this, EmiteLembreteActivity.class);
-        startActivity(emiteLembreteActivity);
-
-    }
-    public void enviaFeedbackActivity(View view) {
-        Intent enviaFeedbackActivity = new Intent(this, EnviaFeedbackActivity.class);
-        startActivity(enviaFeedbackActivity);
-
-    }
-
     public void chamaAlterarInformacoesPessoais(View view) {
         Intent alteraInfo = new Intent(this, AlteraInformacoesPessoais.class);
         startActivity(alteraInfo);
 
+    }
+
+    public void chamaMeuPerfil(View view) {
+        Intent meuPerfil = new Intent(this, PerfilActivity.class);
+        startActivity(meuPerfil);
     }
 /*
     public void chamaMostraAtividadeActivity (View view){

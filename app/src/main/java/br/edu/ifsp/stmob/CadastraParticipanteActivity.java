@@ -84,7 +84,7 @@ public class CadastraParticipanteActivity extends AppCompatActivity {
 
     private void limparDados()
     {
-        cadastraCod.setText("");
+        //cadastraCod.setText("");
         cadastraNome.setText("");
         cadastraEmail.setText("");
         cadastraSenha.setText("");

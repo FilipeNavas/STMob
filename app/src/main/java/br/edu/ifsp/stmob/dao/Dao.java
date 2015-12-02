@@ -12,7 +12,7 @@ import br.edu.ifsp.stmob.R;
 public class DAO<T extends Object> extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "stmob_db";
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
 
     public static final String TABLE_AVISO_EXTRAORDINARIO = "Aviso_Extraordinario";
     public static final String TABLE_ATIVIDADE = "Atividade";
@@ -125,6 +125,13 @@ public class DAO<T extends Object> extends SQLiteOpenHelper {
         String[] atividades;
         atividades = context.getResources().getStringArray(R.array.insertAtividadesBD);
         for(String at:atividades)
+        {
+            database.execSQL(at);
+        }
+
+        String[] usuarios;
+        usuarios = context.getResources().getStringArray(R.array.insertUsuariosAdminBD);
+        for(String at:usuarios)
         {
             database.execSQL(at);
         }

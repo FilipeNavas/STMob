@@ -55,6 +55,10 @@
         </activity>
         <activity android:name=".DetalhePalestranteActivity" >
         </activity>
+        <activity
+            android:name=".PerfilActivity"
+            android:label="@string/title_activity_perfil" >
+        </activity>
     </application>
 
 </manifest>
