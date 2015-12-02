@@ -132,19 +132,23 @@ public class MainActivity extends AppCompatActivity {
         startActivity(emiteLembreteActivity);
 
     }
+    public void enviaFeedbackActivity(View view) {
+        Intent enviaFeedbackActivity = new Intent(this, EnviaFeedbackActivity.class);
+        startActivity(enviaFeedbackActivity);
+
+    }
 
     public void alterarInformacoesPessoais(View view) {
         Intent alteraInfo = new Intent(this, AlteraInformacoesPessoais.class);
         startActivity(alteraInfo);
 
     }
-
-
-//    public void chamaMostraAtividadeActivity (View view){
-//        Intent mostraAtividadeActivity = new Intent(this, MostraAtividadeActivity.class);
-//        startActivity(mostraAtividadeActivity);
-//   }
-
+/*
+    public void chamaMostraAtividadeActivity (View view){
+        Intent mostraAtividadeActivity = new Intent(this, MostraAtividadeActivity.class);
+        startActivity(mostraAtividadeActivity);
+   }
+*/
 
 
 }

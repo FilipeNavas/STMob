@@ -37,7 +37,7 @@ public class CadastraParticipanteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastra_participante);
 
-        cadastraCod = (EditText) findViewById(R.id.cadastraCod);
+       // cadastraCod = (EditText) findViewById(R.id.cadastraCod);
         cadastraNome = (EditText) findViewById(R.id.cadastraNome);
         cadastraEmail = (EditText) findViewById(R.id.cadastraEmail);
         cadastraSenha = (EditText) findViewById(R.id.cadastraSenha);

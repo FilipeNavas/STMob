@@ -85,4 +85,14 @@
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/btnMostraAtividade" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enviar Feedback do evento"
+        android:id="@+id/btnFeedback"
+        android:onClick="enviaFeedbackActivity"
+        android:layout_below="@+id/btnEmiteLembrete"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/btnEmiteLembrete" />
+
 </RelativeLayout>
