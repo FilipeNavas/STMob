@@ -96,7 +96,7 @@ public class UsuarioDAO extends DAO<Usuario> {
 
             values.put("Nome", usuario.getUsuNome());
             values.put("Email", usuario.getUsuEmail());
-            values.put("Senha", usuario.getUsuEmail());
+            values.put("Senha", usuario.getUsuSenha());
             values.put("Tipo", usuario.getUsuTipo());
             values.put("Telefone", usuario.getUsuTelefone());
 

@@ -8,12 +8,13 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Atividade"
+        android:text="Visualizar Atividades"
         android:id="@+id/btnAtividade"
-        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="chamaBuscarAtividadesActivity" />
+        android:onClick="chamaBuscarAtividadesActivity"
+        android:layout_above="@+id/btnParticipante"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -22,8 +23,9 @@
         android:id="@+id/btnParticipante"
         android:onClick="chamaCadastrarParticipantesActivity"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnAtividade"
-        android:layout_alignEnd="@+id/btnAtividade" />
+        android:layout_above="@+id/btnAviso"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -31,9 +33,10 @@
         android:text="Aviso Extraordinário"
         android:id="@+id/btnAviso"
         android:onClick="chamaCadastraAvisoActivity"
-        android:layout_below="@+id/btnParticipante"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/btnParticipante" />
+        android:layout_above="@+id/btnAlterarInformacoesPessoais"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -41,9 +44,10 @@
         android:text="Meu Perfil"
         android:id="@+id/btnAlterarInformacoesPessoais"
         android:onClick="chamaAlterarInformacoesPessoais"
-        android:layout_below="@+id/btnAviso"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/btnAviso" />
+        android:layout_above="@+id/btnLogin"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -51,9 +55,10 @@
         android:text="Login"
         android:id="@+id/btnLogin"
         android:onClick="chamaLoginActivity"
-        android:layout_below="@+id/btnAlterarInformacoesPessoais"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/btnAlterarInformacoesPessoais" />
+        android:layout_above="@+id/btnTestarBanco"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -61,9 +66,10 @@
         android:text="TESTAR BANCO"
         android:id="@+id/btnTestarBanco"
         android:onClick="chamaTestarBanco"
-        android:layout_below="@+id/btnLogin"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/btnLogin" />
+        android:layout_above="@+id/btnMostraAtividade"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -71,9 +77,9 @@
         android:text="Mostra Atividade"
         android:id="@+id/btnMostraAtividade"
         android:onClick="chamaMostraAtividadeActivity"
-        android:layout_below="@+id/btnTestarBanco"
+        android:layout_above="@+id/btnEmiteLembrete"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/btnTestarBanco" />
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -81,9 +87,9 @@
         android:text="Emite Lembrete"
         android:id="@+id/btnEmiteLembrete"
         android:onClick="emiteLembreteActivity"
-        android:layout_below="@+id/btnMostraAtividade"
+        android:layout_above="@+id/btnFeedback"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/btnMostraAtividade" />
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -91,8 +97,17 @@
         android:text="Enviar Feedback do evento"
         android:id="@+id/btnFeedback"
         android:onClick="enviaFeedbackActivity"
-        android:layout_below="@+id/btnEmiteLembrete"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/btnEmiteLembrete" />
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Olá"
+        android:id="@+id/txtBemVindo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

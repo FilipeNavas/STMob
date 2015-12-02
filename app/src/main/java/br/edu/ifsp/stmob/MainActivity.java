@@ -6,21 +6,42 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
+import java.util.HashMap;
 import java.util.List;
 
 import br.edu.ifsp.stmob.dao.FeedbackDAO;
 import br.edu.ifsp.stmob.dao.UsuarioDAO;
 import br.edu.ifsp.stmob.modelo.Feedback;
+import br.edu.ifsp.stmob.modelo.GerenciadorSessao;
 import br.edu.ifsp.stmob.modelo.Usuario;
 
 public class MainActivity extends AppCompatActivity {
+
+    GerenciadorSessao sessao;
+    TextView txtBemVindo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sessao = new GerenciadorSessao(getApplicationContext());
+
+        // get user data from session
+        HashMap<String, String> user = sessao.pegarDadosUsuario();
+
+        // nome
+        String nomeUsuario = user.get(GerenciadorSessao.CHAVE_NOME);
+
+        txtBemVindo = (TextView) findViewById(R.id.txtBemVindo);
+
+        txtBemVindo.setText("Olá, " + nomeUsuario + "!");
+
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -71,8 +92,9 @@ public class MainActivity extends AppCompatActivity {
 
             //Cria um usuario
             Usuario usuario = new Usuario();
-            usuario.setUsuNome("Joao da Silva");
-            usuario.setUsuEmail("joaodasilva@hotmail.com");
+            usuario.setUsuNome("Filipe Navas");
+            usuario.setUsuEmail("filipenavas@hmail.com");
+            usuario.setUsuSenha("asd");
             //usuario.setUsuCod(0);
 
             //Salva no banco
@@ -81,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             usuarioDao.salvar(usuario);
 
             //Recupera o usuario no banco
-            Usuario usuarioRecuperado = usuarioDao.getByEmail("joaodasilva@hotmail.com");
+            Usuario usuarioRecuperado = usuarioDao.getByEmail("filipenavas@hmail.com");
 
             //Cria um feedback
             Feedback feedback = new Feedback();
