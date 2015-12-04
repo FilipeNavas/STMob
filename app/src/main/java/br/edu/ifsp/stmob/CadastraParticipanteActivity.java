@@ -1,5 +1,6 @@
 package br.edu.ifsp.stmob;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -36,7 +37,7 @@ public class CadastraParticipanteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastra_participante);
 
-        cadastraCod = (EditText) findViewById(R.id.cadastraCod);
+       // cadastraCod = (EditText) findViewById(R.id.cadastraCod);
         cadastraNome = (EditText) findViewById(R.id.cadastraNome);
         cadastraEmail = (EditText) findViewById(R.id.cadastraEmail);
         cadastraSenha = (EditText) findViewById(R.id.cadastraSenha);
@@ -83,7 +84,7 @@ public class CadastraParticipanteActivity extends AppCompatActivity {
 
     private void limparDados()
     {
-        cadastraCod.setText("");
+        //cadastraCod.setText("");
         cadastraNome.setText("");
         cadastraEmail.setText("");
         cadastraSenha.setText("");
@@ -120,4 +121,12 @@ public class CadastraParticipanteActivity extends AppCompatActivity {
     {
         Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
     }
+
+
+    public void voltarTelaInicial(View view)
+    {
+        Intent telaInicial = new Intent(this, MainActivity.class);
+        startActivity(telaInicial);
+    }
+
 }

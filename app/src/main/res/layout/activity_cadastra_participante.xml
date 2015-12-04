@@ -3,14 +3,6 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:layout_width="387dp"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/cadastraCod"
-        android:layout_marginTop="54dp"
-        android:hint="Nome Completo" />
 
     <EditText
         android:layout_width="387dp"
@@ -89,6 +81,7 @@
         android:layout_width="105dp"
         android:layout_height="wrap_content"
         android:text="Voltar"
+        android:onClick="voltarTelaInicial"
         android:id="@+id/btnVoltar" />
 
 

@@ -103,5 +103,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="37dp" />
 
+    <Button
+        android:layout_width="351dp"
+        android:layout_height="wrap_content"
+        android:text="GRADE DE ATIVIDADES COMPLETA"
+        android:id="@+id/btnGradeAtividadesCompleta"
+        android:layout_below="@+id/spAreaConhecimento"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp"
+        android:layout_weight="0.09" />
+
 
 </LinearLayout>

@@ -3,22 +3,20 @@ package br.edu.ifsp.stmob;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
-
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -33,12 +31,19 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.ifsp.stmob.dao.UsuarioDAO;
+import br.edu.ifsp.stmob.modelo.GerenciadorSessao;
+import br.edu.ifsp.stmob.modelo.Usuario;
+
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+
+    // atributo da sessao
+    GerenciadorSessao sessao;
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -67,6 +72,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        //pega a sessao
+        sessao = new GerenciadorSessao(getApplicationContext());
+
+        //Se o usuário já estiver logado, redireciona ele para a Main Activty
+        if(sessao.estaLogado()){
+            Intent mainActivity = new Intent(getApplicationContext() ,MainActivity.class);
+            startActivity(mainActivity);
+        }
+
+
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -93,12 +109,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
-    }
-
-    public void chamaRecuperaSenhaActivity (View view){
-
-        Intent recuperaSenhaActivity = new Intent(this, RecuperaSenhaActivity.class);
-        startActivity(recuperaSenhaActivity);
     }
 
     public void chamaCadastraParticipanteActivity (View view){
@@ -216,7 +226,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        return password.length() > 4;
+        return password.length() >= 1 && password.length() < 45;
     }
 
     /**
@@ -329,21 +339,43 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             try {
                 // Simulate network access.
-                Thread.sleep(2000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 return false;
             }
 
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
+            //Instancia o DAO
+            UsuarioDAO dao = new UsuarioDAO(getApplicationContext());
+
+            //Pega o usuario por email
+            Usuario usuarioLogin = dao.getByEmail(mEmail);
+
+            //Instancia a sessao
+            sessao = new GerenciadorSessao(getApplicationContext());
+
+            //Se o retorno for nulo, retorna false
+            if(usuarioLogin == null){
+                return false;
+
+            //Senão, vamos checar a senha
+            }else{
+                //Se a senha bate, retorna true
+                if(usuarioLogin.getUsuSenha().equals(mPassword)){
+
+                    //Faz o login na sessao
+                    //O codigo do usuario  ficara salvo na sessao como String. Qdo for usa-lo tem q fazer o parse.
+                    sessao.criarSessaoLogin(usuarioLogin.getUsuNome(),usuarioLogin.getUsuEmail(),
+                                            String.valueOf(usuarioLogin.getUsuCod()),usuarioLogin.getUsuTipo());
+
+                    return true;
+
+                //Else, retorna false
+                }else{
+                    return false;
                 }
             }
 
-            // TODO: register the new account here.
-            return true;
+
         }
 
         @Override
@@ -353,6 +385,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             if (success) {
                 finish();
+                //Termina a execucao, chama a Main Activity
+                Intent mainActivity = new Intent(getApplicationContext() ,MainActivity.class);
+                startActivity(mainActivity);
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();

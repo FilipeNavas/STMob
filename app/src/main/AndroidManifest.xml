@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,14 +22,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login" >
+            android:name=".MainActivity"
+            android:label="Bem Vindo" >
         </activity>
         <activity android:name=".RecuperaSenhaActivity" >
         </activity>
         <activity android:name=".BuscaAvisoExtraordinarioActivity" >
         </activity>
-        <activity android:name=".CadastraAvisoExtraordinarioActivity" >
+        <activity android:name=".CadastraAvisoExtraordinarioActivity" android:label="Cadastro Aviso Extraordinario" >
+        </activity>
+        <activity android:name=".ListaAvisoExtraordinarioActivity" android:label="Avisos Extraordinarios" >
         </activity>
         <activity android:name=".AlteraParticipanteActivity" >
         </activity>
@@ -51,11 +53,15 @@
         </activity>
         <activity android:name=".EmiteLembreteActivity" >
         </activity>
+        <activity android:name=".EnviaFeedbackActivity" >
+        </activity>
         <activity android:name=".DetalhePalestranteActivity" >
         </activity>
         <activity
-            android:name=".GradeAtividadesCompletaActivity"
-            android:label="@string/title_activity_grade_atividades_completa" >
+            android:name=".PerfilActivity"
+            android:label="@string/title_activity_perfil" >
+        </activity>
+        <activity android:name=".ListaInscricaoActivity" >
         </activity>
     </application>
 

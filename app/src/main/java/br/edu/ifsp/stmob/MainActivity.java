@@ -6,21 +6,42 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
+import java.util.HashMap;
 import java.util.List;
 
 import br.edu.ifsp.stmob.dao.FeedbackDAO;
 import br.edu.ifsp.stmob.dao.UsuarioDAO;
 import br.edu.ifsp.stmob.modelo.Feedback;
+import br.edu.ifsp.stmob.modelo.GerenciadorSessao;
 import br.edu.ifsp.stmob.modelo.Usuario;
 
 public class MainActivity extends AppCompatActivity {
+
+    GerenciadorSessao sessao;
+    TextView txtBemVindo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sessao = new GerenciadorSessao(getApplicationContext());
+
+        // get user data from session
+        HashMap<String, String> user = sessao.pegarDadosUsuario();
+
+        // nome
+        String nomeUsuario = user.get(GerenciadorSessao.CHAVE_NOME);
+
+        txtBemVindo = (TextView) findViewById(R.id.txtBemVindo);
+
+        txtBemVindo.setText("Olá, " + nomeUsuario + "!");
+
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -71,8 +92,9 @@ public class MainActivity extends AppCompatActivity {
 
             //Cria um usuario
             Usuario usuario = new Usuario();
-            usuario.setUsuNome("Joao da Silva");
-            usuario.setUsuEmail("joaodasilva@hotmail.com");
+            usuario.setUsuNome("Filipe Navas");
+            usuario.setUsuEmail("filipenavas@hmail.com");
+            usuario.setUsuSenha("asd");
             //usuario.setUsuCod(0);
 
             //Salva no banco
@@ -81,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             usuarioDao.salvar(usuario);
 
             //Recupera o usuario no banco
-            Usuario usuarioRecuperado = usuarioDao.getByEmail("joaodasilva@hotmail.com");
+            Usuario usuarioRecuperado = usuarioDao.getByEmail("filipenavas@hmail.com");
 
             //Cria um feedback
             Feedback feedback = new Feedback();
@@ -96,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             //Lista o usuario do banco
             List<Usuario> list = usuarioDao.listAll();
             for (Usuario objeto : list) {
-                System.out.println("RESULTADO USUARIO: " + objeto.getUsuNome());
+                System.out.println("RESULTADO USUARIO: " + objeto.getUsuNome() + "  Cod: " + objeto.getUsuCod());
         }
 
             //Lista o feedback do banco
@@ -108,12 +130,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-    public void chamaBuscaAvisoActivity (View view){
-
-        Intent buscaAvisoActivity = new Intent(this, BuscaAvisoExtraordinarioActivity.class);
-        startActivity(buscaAvisoActivity);
-    }
 
     public void chamaBuscarAtividadesActivity (View view){
 
@@ -127,18 +143,27 @@ public class MainActivity extends AppCompatActivity {
         startActivity(cadastrarParticipantesActivity);
     }
 
-    public void emiteLembreteActivity(View view) {
-        Intent emiteLembreteActivity = new Intent(this, EmiteLembreteActivity.class);
-        startActivity(emiteLembreteActivity);
+    public void chamaAlterarInformacoesPessoais(View view) {
+        Intent alteraInfo = new Intent(this, AlteraInformacoesPessoais.class);
+        startActivity(alteraInfo);
 
     }
 
+    public void chamaMeuPerfil(View view) {
+        Intent meuPerfil = new Intent(this, PerfilActivity.class);
+        startActivity(meuPerfil);
+    }
 
-    public void chamaGradeAtividadesCompleta (View view){
-        Intent gradeAtividadesCompleta = new Intent(this, GradeAtividadesCompletaActivity.class);
-        startActivity(gradeAtividadesCompleta);
+    public void chamaListaInscricao(View view) {
+        Intent inscricao = new Intent(this, ListaInscricaoActivity.class);
+        startActivity(inscricao);
+    }
+/*
+    public void chamaMostraAtividadeActivity (View view){
+        Intent mostraAtividadeActivity = new Intent(this, MostraAtividadeActivity.class);
+        startActivity(mostraAtividadeActivity);
    }
-
+*/
 
 
 }

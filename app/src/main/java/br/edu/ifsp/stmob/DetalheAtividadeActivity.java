@@ -12,11 +12,14 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import java.util.HashMap;
+
 import br.edu.ifsp.stmob.dao.AreaConhecimentoDAO;
 import br.edu.ifsp.stmob.dao.AtividadeDAO;
 import br.edu.ifsp.stmob.dao.InscricaoDAO;
 import br.edu.ifsp.stmob.dao.PalestranteDAO;
 import br.edu.ifsp.stmob.modelo.Atividade;
+import br.edu.ifsp.stmob.modelo.GerenciadorSessao;
 import br.edu.ifsp.stmob.modelo.Inscricao;
 import br.edu.ifsp.stmob.modelo.Palestrante;
 import br.edu.ifsp.stmob.modelo.Usuario;
@@ -41,6 +44,9 @@ public class DetalheAtividadeActivity extends Activity {
     private Button compartilhar;
     private Button presenca;
     private Button agenda;
+
+    //Sessao
+    private GerenciadorSessao sessao;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -75,7 +81,19 @@ public class DetalheAtividadeActivity extends Activity {
 
                 Inscricao ins = new Inscricao();
                 Usuario usu = new Usuario();
-                usu.setUsuCod(1);
+
+                //Pega a sessao
+                sessao = new GerenciadorSessao(getApplicationContext());
+
+                //pega os dados da sessao
+                HashMap<String, String> user = sessao.pegarDadosUsuario();
+
+                //pega o codigo do usuario da sessao
+                int codigoUsuario = Integer.parseInt(user.get(GerenciadorSessao.CHAVE_CODIGO));
+
+                //Pega o codigo do usuario
+                usu.setUsuCod(codigoUsuario);
+
                 ins.setInsAtividade(atividade);
                 ins.setInsUsuario(usu);
                 Inscricao isInscrit = insDao.isInscrito(atividade.getAtvCod(), usu.getUsuCod());

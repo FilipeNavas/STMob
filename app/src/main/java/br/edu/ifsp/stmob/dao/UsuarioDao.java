@@ -46,6 +46,25 @@ public class UsuarioDAO extends DAO<Usuario> {
             return usu;
         }
 
+
+        public Usuario getByCod(Integer codUsuario)
+        {
+            Usuario usu = null;
+
+            Cursor cursor = executeSelect("Cod_Usuario = ?", new String[]{String.valueOf(codUsuario)}, null);
+
+            if (cursor != null && cursor.moveToFirst())
+            {
+                usu = serializeByCursor(cursor);
+            }
+            if (!cursor.isClosed())
+            {
+                cursor.close();
+            }
+
+            return usu;
+        }
+
         public Usuario getBySenha(String senha) {
             Usuario se = null;
 
@@ -96,7 +115,7 @@ public class UsuarioDAO extends DAO<Usuario> {
 
             values.put("Nome", usuario.getUsuNome());
             values.put("Email", usuario.getUsuEmail());
-            values.put("Senha", usuario.getUsuEmail());
+            values.put("Senha", usuario.getUsuSenha());
             values.put("Tipo", usuario.getUsuTipo());
             values.put("Telefone", usuario.getUsuTelefone());
 
