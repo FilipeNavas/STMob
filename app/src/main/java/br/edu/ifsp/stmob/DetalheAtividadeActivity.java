@@ -96,6 +96,8 @@ public class DetalheAtividadeActivity extends Activity {
 
                 ins.setInsAtividade(atividade);
                 ins.setInsUsuario(usu);
+
+
                 Inscricao isInscrit = insDao.isInscrito(atividade.getAtvCod(), usu.getUsuCod());
 
                 if (isInscrit.getInsCod()!=0) {
@@ -165,16 +167,52 @@ public class DetalheAtividadeActivity extends Activity {
             String contents = result.getContents();
             if (contents != null) {
 
+                Inscricao ins = new Inscricao();
+                Usuario usu = new Usuario();
+
+                //Pega a sessao
+                sessao = new GerenciadorSessao(getApplicationContext());
+
+                //pega os dados da sessao
+                HashMap<String, String> user = sessao.pegarDadosUsuario();
+
+                //pega o codigo do usuario da sessao
+                int codigoUsuario = Integer.parseInt(user.get(GerenciadorSessao.CHAVE_CODIGO));
+
+                //Pega o codigo do usuario
+                usu.setUsuCod(codigoUsuario);
+
+                ins.setInsAtividade(atividade);
+                ins.setInsUsuario(usu);
+
+
+                Inscricao inscricao_qr = insDao.isInscrito(atividade.getAtvCod(), usu.getUsuCod());
+
                 if( result.getContents().toString().equals(String.valueOf( atividade.getAtvCod()))){
-                    Toast toast = Toast.makeText(getApplicationContext(),  "PRESENÇA CONFIRMADA!", Toast.LENGTH_LONG);
-                    toast.show();
+
+                    if (inscricao_qr.getInsCod()!=0) {
+                        if (inscricao_qr.isInsStatusPresenca()){
+                            Toast toast = Toast.makeText(getApplicationContext(),  "SUA PRESENÇA JÁ FOI CONFIRMADA ANTERIORMENTE!", Toast.LENGTH_LONG);
+                            toast.show();
+                        }else{
+                            inscricao_qr.setInsStatusPresenca(true);
+                            insDao.atualizar(inscricao_qr);
+                            Toast toast = Toast.makeText(getApplicationContext(), "Presença Confirmada!", Toast.LENGTH_LONG);
+                            toast.show();
+                        }
+                    }else{
+                        Toast toast = Toast.makeText(getApplicationContext(),  "VOCE AINDA NÃO ESTÁ INSCRITO NESSA ATIVIDADE", Toast.LENGTH_LONG);
+                        toast.show();
+                    }
+
+
                 }else{
-                    Toast toast = Toast.makeText(getApplicationContext(),  "SUA PRESENÇA NÃO FOI CONFIRMADA!", Toast.LENGTH_LONG);
+                    Toast toast = Toast.makeText(getApplicationContext(),  "O QRCODE INFORMADO NÃO BATE COM A ATIVIDADE SELECIONADA!", Toast.LENGTH_LONG);
                     toast.show();
                 }
 
             } else {
-                Toast toast = Toast.makeText(getApplicationContext(), R.string.result_failed + result.toString(), Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getApplicationContext(), "TECLA VOLTAR PRESSIONADA", Toast.LENGTH_LONG);
                 toast.show();
                 //showDialog(R.string.result_failed, Bundle.EMPTY);
             }

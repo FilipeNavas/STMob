@@ -100,7 +100,7 @@ public class InscricaoDAO extends DAO<Inscricao> {
         //Serializa para ContentValues - nao pega o codigo
         ContentValues values = new ContentValues();
 
-        values.put("Descricao", inscricao.isInsStatusPresenca());
+        values.put("Status_Presenca", inscricao.isInsStatusPresenca());
         values.put("Atividade_Cod_Atividade", inscricao.getInsAtividade().getAtvCod()); //Chave Estrangeira
         values.put("Usuario_Cod_Usuario", inscricao.getInsUsuario().getUsuCod()); //Chave Estrangeira
 
@@ -158,7 +158,12 @@ public class InscricaoDAO extends DAO<Inscricao> {
     private Inscricao serializeByCursor(Cursor cursor) {
         Inscricao inscricao = new Inscricao();
         inscricao.setInsCod(cursor.getInt(0));
-        inscricao.setInsStatusPresenca(Boolean.parseBoolean(cursor.getString(1)));
+
+        if(cursor.getInt(1) == 1){
+            inscricao.setInsStatusPresenca(true);
+        }else{
+            inscricao.setInsStatusPresenca(false);
+        }
 
         //##ATIVIDADE##
         //Recupera o Cod da chave estrangeira como um int
@@ -193,7 +198,7 @@ public class InscricaoDAO extends DAO<Inscricao> {
     private ContentValues serializeContentValues(Inscricao inscricao) {
         ContentValues values = new ContentValues();
         values.put("Cod_Inscricao", inscricao.getInsCod());
-        values.put("Descricao", inscricao.isInsStatusPresenca());
+        values.put("Status_Presenca", inscricao.isInsStatusPresenca());
         values.put("Atividade_Cod_Atividade", inscricao.getInsAtividade().getAtvCod()); //Chave Estrangeira
         values.put("Usuario_Cod_Usuario", inscricao.getInsUsuario().getUsuCod()); //Chave Estrangeira
 
