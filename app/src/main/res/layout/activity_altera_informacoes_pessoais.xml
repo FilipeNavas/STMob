@@ -33,7 +33,6 @@
             android:layout_height="wrap_content" android:hint="Telefone"
             android:maxLines="1"
             android:singleLine="true"
-            android:digits="11"
             android:inputType="phone" />
 
     </android.support.design.widget.TextInputLayout>
