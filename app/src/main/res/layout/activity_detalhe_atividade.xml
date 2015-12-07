@@ -124,6 +124,7 @@
             android:id="@+id/btnAgenda"
             android:textSize="14sp"
             android:text="Agenda"
-            android:layout_gravity="left"/>
+            android:layout_gravity="left"
+            android:onClick="syncronize"/>
     </LinearLayout>
 </LinearLayout>
