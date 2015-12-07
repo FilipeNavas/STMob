@@ -30,6 +30,7 @@ public class BuscarAtividadesActivity extends Activity {
     private PalestranteDAO plsDao;
     private AreaConhecimentoDAO arcDao;
     private Button buscar;
+    private Button gradeAtividadesCompleta;
 
 
     @Override
@@ -56,6 +57,21 @@ public class BuscarAtividadesActivity extends Activity {
                 it.putExtra("atv",edNomeAtividade.getText().toString());
                 it.putExtra("pls",spPalestrante.getSelectedItem().toString());
                 it.putExtra("arc",spAreaConhecimento.getSelectedItem().toString());
+                startActivity(it);
+            }
+        });
+
+        //botão de exibição de grades completa.
+        gradeAtividadesCompleta = (Button) findViewById(R.id.btnGradeAtividadesCompleta);
+
+        gradeAtividadesCompleta.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                Intent it = new Intent(getApplicationContext(), BuscaAtividadeResultadoActivity.class);
+                it.putExtra("atv","");
+                it.putExtra("pls", "Selecione");
+                it.putExtra("arc", "Selecione");
                 startActivity(it);
             }
         });

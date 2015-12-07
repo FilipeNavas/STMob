@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:text="Aviso Extraordinário (Admin)"
         android:id="@+id/btnAvisoExtraordinarioAdmin"
-        android:onClick="chamaBuscaAvisoActivity"
+        android:onClick="chamaCadastraAvisoActivity"
         android:layout_below="@+id/btnEmiteLembrete"
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/btnEmiteLembrete" />
@@ -33,6 +33,7 @@
         android:layout_below="@+id/btnAvisoExtraordinarioAdmin"
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/btnAvisoExtraordinarioAdmin" />
+
 
     <Button
         android:layout_width="wrap_content"

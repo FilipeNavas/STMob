@@ -52,5 +52,7 @@
     <string name="Inscrever"> Inscrever</string>
     <string name="title_activity_perfil">Meu Perfil</string>
 
+    <string name="sim"> Sim</string>
+    <string name="nao"> Não</string>
 
 </resources>

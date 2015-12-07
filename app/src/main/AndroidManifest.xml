@@ -41,7 +41,9 @@
 
         <activity android:name=".BuscaAvisoExtraordinarioActivity" >
         </activity>
-        <activity android:name=".CadastraAvisoExtraordinarioActivity" >
+        <activity android:name=".CadastraAvisoExtraordinarioActivity" android:label="Cadastro Aviso Extraordinario" >
+        </activity>
+        <activity android:name=".ListaAvisoExtraordinarioActivity" android:label="Avisos Extraordinarios" >
         </activity>
         <activity android:name=".AlteraParticipanteActivity" >
         </activity>
@@ -70,6 +72,8 @@
         <activity
             android:name=".PerfilActivity"
             android:label="@string/title_activity_perfil" >
+        </activity>
+        <activity android:name=".ListaInscricaoActivity" >
         </activity>
     </application>
 

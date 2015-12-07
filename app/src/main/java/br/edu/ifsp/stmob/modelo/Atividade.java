@@ -1,7 +1,5 @@
 package br.edu.ifsp.stmob.modelo;
 
-import java.sql.Time;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -102,6 +100,12 @@ public class Atividade {
         Atividade a= new Atividade();
         return a;
     }
+
+    @Override
+    public String toString() {
+        return this.getAtvTitulo();
+    }
+
     public void exibirGrade(){}
 
     public void emiteEmailInf(){}

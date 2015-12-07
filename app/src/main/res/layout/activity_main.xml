@@ -153,7 +153,7 @@
         android:layout_height="wrap_content"
         android:text="Minhas Atividades"
         android:id="@+id/btnMinhasAtividades"
-        android:onClick=""
+        android:onClick="chamaListaInscricao"
         android:layout_marginTop="47dp"
         android:layout_below="@+id/btnAtividade"
         android:layout_alignParentStart="true"
